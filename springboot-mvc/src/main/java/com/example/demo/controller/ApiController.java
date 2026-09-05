@@ -97,6 +97,13 @@ public class ApiController {
 	 * 路徑: "/average/scores?score=80&score=100&score=50&score=70&score=30"
 	 * 印出分數與平均
 	 * */
+	@GetMapping("/average/scores")
+	public String averageOfScore(@RequestParam(name = "score") List<Integer> scores) {
+		double avg = scores.stream().mapToInt(Integer::valueOf).average().orElse(0);
+		
+		String result = "分數:%s 平均:%.1f".formatted(scores, avg);
+		return result; 
+	}
 	
 	
 	
