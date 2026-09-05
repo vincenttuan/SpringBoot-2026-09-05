@@ -45,9 +45,9 @@ public class ApiController {
 	/**
 	 * 3. 上述 2 的精簡配置寫法
 	 * 方法參數與請求參數同名
-	 * 路徑: /hello?name=John
-	 * 路徑: /hello?name=John&age=20
-	 * 路徑: /hello?name=Mary
+	 * 路徑: /hi?name=John
+	 * 路徑: /hi?name=John&age=20
+	 * 路徑: /hi?name=Mary
 	 * */
 	@GetMapping("/hi")
 	public String hi(@RequestParam String name,
