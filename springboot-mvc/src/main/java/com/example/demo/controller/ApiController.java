@@ -58,4 +58,13 @@ public class ApiController {
 		return result;
 	}
 	
+	/** 
+	 * 4. Lab 練習 I
+	 * 路徑: /bmi?h=170&w=60
+	 * 網址: http://localhost:8080/api/bmi?h=170&w=60
+	 * 判斷: bmi <= 18 顯示過輕, bmi > 23 顯示過重
+	 * 執行結果: 身高:170cm 體重:60kg bmi=20.76(正常)
+	*/
+	
+	
 }
