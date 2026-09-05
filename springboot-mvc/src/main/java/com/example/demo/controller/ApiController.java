@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.Date;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +18,11 @@ public class ApiController {
 	 * 網址: http://localhost:8080/api/home
 	 * */
 	
-	@GetMapping(value = {"/welcome", "/home"})
+	@GetMapping(value = {"/welcome", "/home"}, produces = "text/plain;charset=UTF-8")
 	public String welcome() {
-		return "Welcome !";
+		return "Welcome 歡迎光臨 !" + new Date();
 	}
+	
+	
 	
 }
