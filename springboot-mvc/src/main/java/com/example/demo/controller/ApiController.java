@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,6 +71,23 @@ public class ApiController {
 		Double bmi = w / Math.pow(h/100, 2);
 		String diagnosis = (bmi <= 18) ? "過輕" : (bmi > 23) ? "過重" : "正常";
 		String result = "身高: %.1f cm 體重: %.1f kg BMI: %.2f (%s)".formatted(h, w, bmi, diagnosis);
+		return result;
+	}
+	
+	/**
+	 * 5. 同名多筆資料
+	 * 路徑: /average/ages?age=17&age=21&age=20
+	 * */
+	@GetMapping("/average/ages")
+	public String averageOfAge(@RequestParam(name = "age") List<Integer> ages) {
+		
+		double avg = ages.stream()
+						 //.mapToInt(age -> Integer.valueOf(age)) // Integer 轉 int
+						 .mapToInt(Integer::valueOf) // Integer 轉 int
+						 .average()
+						 .orElse(0);
+		
+		String result = "年齡:%s 平均:%.1f".formatted(ages, avg);
 		return result;
 	}
 	
