@@ -77,6 +77,7 @@ public class ApiController {
 	/**
 	 * 5. 同名多筆資料
 	 * 路徑: /average/ages?age=17&age=21&age=20
+	 * 印出年齡與平均
 	 * */
 	@GetMapping("/average/ages")
 	public String averageOfAge(@RequestParam(name = "age") List<Integer> ages) {
@@ -91,6 +92,11 @@ public class ApiController {
 		return result;
 	}
 	
+	/**
+	 * 6. Lab 練習: 得到多筆 score 資料
+	 * 路徑: "/average/scores?score=80&score=100&score=50&score=70&score=30"
+	 * 印出分數與平均
+	 * */
 	
 	
 	
