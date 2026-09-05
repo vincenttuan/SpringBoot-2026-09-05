@@ -95,13 +95,14 @@ public class ApiController {
 	/**
 	 * 6. Lab 練習: 得到多筆 score 資料
 	 * 路徑: "/average/scores?score=80&score=100&score=50&score=70&score=30"
-	 * 印出分數與平均
+	 * 印出分數與平均, 總分
 	 * */
 	@GetMapping("/average/scores")
 	public String averageOfScore(@RequestParam(name = "score") List<Integer> scores) {
 		double avg = scores.stream().mapToInt(Integer::valueOf).average().orElse(0);
+		int    sum = scores.stream().mapToInt(Integer::valueOf).sum();
 		
-		String result = "分數:%s 平均:%.1f".formatted(scores, avg);
+		String result = "分數:%s 平均:%.1f 總分:%d".formatted(scores, avg, sum);
 		return result; 
 	}
 	
