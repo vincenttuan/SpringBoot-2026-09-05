@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Repository;
@@ -36,8 +37,16 @@ public class BookRepositoryInMemory implements BookRepository {
 
 	@Override
 	public Boolean addBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		// 找到書庫中目前 id 最大值
+		OptionalInt optMaxId = books.stream().mapToInt(Book::getId).max(); // 取出 books 中 id 的最大值
+		
+		// 建立 newId = 目前書庫中 id 的最大值 + 1
+		Integer newId = optMaxId.isEmpty() ? 1 : optMaxId.getAsInt() + 1;
+		
+		// 將 newId 設定給 book
+		book.setId(newId);
+		
+		return books.add(book);
 	}
 
 	@Override
