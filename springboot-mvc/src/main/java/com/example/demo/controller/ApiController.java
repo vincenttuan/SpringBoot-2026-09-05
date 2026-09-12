@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.BMI;
+import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 
 @RestController // 宣告 ApiController 是一個 Controller, Rest 是表示支援的路徑風格
@@ -220,7 +221,8 @@ public class ApiController {
 	 * */
 	@GetMapping(value = "/json/book", produces = "application/json;charset=utf-8")
 	public ResponseEntity<ApiResponse<Book>> getBookInfo2(Book book) {
-		
+		System.out.printf("book = %s%n", book);
+		return ResponseEntity.ok(ApiResponse.success("書籍資料", book));
 	}
 	
 }
