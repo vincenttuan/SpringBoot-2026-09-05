@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -171,6 +172,28 @@ public class ApiController {
 		BMI bmi = new BMI(h, w, bmiValue);
 		
 		return ApiResponse.success("BMI 計算結果", bmi);
+		
+	}
+	
+	@GetMapping(value = "/json/bmi4", produces = "application/json;charset=utf8")
+	public ResponseEntity<ApiResponse<BMI>> calcBmi4(@RequestParam(required = false) Double h, @RequestParam(required = false) Double w) {
+		// 參數個數檢查
+		if(h == null || w == null) {
+			// bad request => HTTP 400
+			return ResponseEntity.badRequest().body(ApiResponse.error("缺少了身高或體重的參數"));
+		}
+		
+		// 參數內容檢查
+		if(h <= 0 || w <= 0) {
+			// bad request => HTTP 400
+			return ResponseEntity.badRequest().body(ApiResponse.error("身高或體重的參數內容錯誤, 必須皆 > 0"));
+		}
+		
+		// 執行計算
+		double bmiValue = w / Math.pow(h/100, 2);
+		BMI bmi = new BMI(h, w, bmiValue);
+		// ok => HTTP 200
+		return ResponseEntity.ok(ApiResponse.success("BMI 計算結果", bmi));
 		
 	}
 	
