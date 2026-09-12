@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
+	private Integer id;
 	private String name;
 	private Double price;
 	private Integer amount;
