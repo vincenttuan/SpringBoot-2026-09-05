@@ -219,7 +219,7 @@ public class ApiController {
 	 * 路徑: /json/book2?name=English&price=10.5&amount=20&pub=false
 	 * 讓參數自動轉成指定 model 
 	 * */
-	@GetMapping(value = "/json/book", produces = "application/json;charset=utf-8")
+	@GetMapping(value = "/json/book2", produces = "application/json;charset=utf-8")
 	public ResponseEntity<ApiResponse<Book>> getBookInfo2(Book book) {
 		System.out.printf("book = %s%n", book);
 		return ResponseEntity.ok(ApiResponse.success("書籍資料", book));
