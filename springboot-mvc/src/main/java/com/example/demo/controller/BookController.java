@@ -7,7 +7,8 @@ package com.example.demo.controller;
  * 本類別是「書籍管理系統」的 RESTful API 控制器，
  * 負責接收前端 (例如 React / Vue) 的 HTTP 請求，
  * 並呼叫 Service 層進行商業邏輯處理，最後回傳 JSON 結果。
- *
+ * Repository 負責資料的 CRUD
+ * 
  * --------------------------------------------
  * 📌 使用技術：
  * - Spring Boot (REST API)
