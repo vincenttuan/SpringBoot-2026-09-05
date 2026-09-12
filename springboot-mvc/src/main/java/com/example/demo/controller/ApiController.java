@@ -286,7 +286,7 @@ public class ApiController {
 			return ResponseEntity.ok(ApiResponse.error("查無任何書籍"));
 		}
 		
-		return ResponseEntity.ok(ApiResponse.success("查詢結果", books));
+		return ResponseEntity.ok(ApiResponse.success("筆數: " + books.size(), books));
 	}
 	
 	
