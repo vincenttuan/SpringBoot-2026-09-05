@@ -33,6 +33,7 @@ public class BookRepositoryInMemoryTest {
 		Optional<Book> optBook = bookRepository.getBookById(id);
 		if(optBook.isEmpty()) {
 			System.out.println("查無此書");
+			return;
 		}
 		System.out.println(optBook.get());
 	}
