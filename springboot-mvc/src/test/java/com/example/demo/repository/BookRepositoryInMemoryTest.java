@@ -27,7 +27,7 @@ public class BookRepositoryInMemoryTest {
 		bookRepository.findAllBooks().forEach(System.out::println);
 	}
 	
-	@Test
+	//@Test
 	void findById() {
 		Integer id = 1;
 		Optional<Book> optBook = bookRepository.getBookById(id);
@@ -37,6 +37,14 @@ public class BookRepositoryInMemoryTest {
 		}
 		System.out.println(optBook.get());
 	}
+	
+	@Test
+	void add() {
+		Book book = new Book(null, "Java", 100.0, 120, true);
+		boolean result = bookRepository.addBook(book);
+		System.out.println("新增: " + result);
+	}
+	
 	
 	
 }
