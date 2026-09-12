@@ -108,6 +108,38 @@ public class ApiController {
 		return result; 
 	}
 	
+	/**
+	 * 7. 回傳 json 結構
+	 * 路徑: /json/bmi?h=170&w=60
+	 * 網址: http://localhost:8080/api/json/bmi?h=170&w=60
+	 * 判斷: bmi <= 18 顯示過輕, bmi > 23 顯示過重
+	 * 執行結果: 
+	 * {
+	 * 	"message": "BMI 執行結果",
+	 *  "data": {
+	 *  	"height": 170.0,
+	 *  	"weight": 60.0,
+	 *  	"bmi": 20.76
+	 *  }
+	 * } 
+	 * 
+	 * */
+	@GetMapping(value = "/json/bmi", produces = "application/json;charset=utf8")
+	public String calcBmi(@RequestParam(required = false) Double h, @RequestParam(required = false) Double w) {
+		double bmi = w / Math.pow(h/100, 2);
+		
+		return """
+				{
+				 	"message": "BMI 執行結果",
+					"data": {
+				   		"height": %.1f,
+				   		"weight": %.1f,
+				   		"bmi": %.2f
+				  	}
+				}
+				""".formatted(h, w, bmi);
+		
+	}
 	
 	
 }
