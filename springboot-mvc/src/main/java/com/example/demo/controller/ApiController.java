@@ -289,5 +289,15 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("筆數: " + books.size(), books));
 	}
 	
+	/**
+	 * Lab
+	 * 書庫: 請參考上面的實作
+	 * 
+	 * 得到已出版(pub:true)的書籍
+	 * 網址: http://localhost:8080/api/json/book/pub/true
+	 * 
+	 * 得到未出版(pub:false)的書籍
+	 * 網址: http://localhost:8080/api/json/book/pub/false
+	 * */
 	
 }
