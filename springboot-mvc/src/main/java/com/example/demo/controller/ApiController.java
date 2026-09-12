@@ -291,7 +291,7 @@ public class ApiController {
 	
 	/**
 	 * Lab
-	 * 書庫: 請參考上面的實作
+	 * 書庫: 請參考(10, 11)上面的實作
 	 * 
 	 * 得到已出版(pub:true)的書籍
 	 * 網址: http://localhost:8080/api/json/book/pub/true
