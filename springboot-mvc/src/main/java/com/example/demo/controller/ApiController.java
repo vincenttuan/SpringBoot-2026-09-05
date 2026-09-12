@@ -311,13 +311,13 @@ public class ApiController {
 		);
 		
 		// 過濾出刊/停刊
-		List<Book> queryBooks = books.stream().filter(book -> book.getPub().equals(isPub)).toList();
+		List<Book> filterBooks = books.stream().filter(book -> book.getPub().equals(isPub)).toList();
 		
-		if(queryBooks.size() == 0) {
+		if(filterBooks.size() == 0) {
 			return ResponseEntity.ok(ApiResponse.error("查無任何書籍"));
 		}
 		
-		return ResponseEntity.ok(ApiResponse.success("%s 筆數: %d".formatted(isPub?"出刊":"停刊", queryBooks.size()), queryBooks));
+		return ResponseEntity.ok(ApiResponse.success("%s 筆數: %d".formatted(isPub?"出刊":"停刊", filterBooks.size()), filterBooks));
 	}
 	
 	
