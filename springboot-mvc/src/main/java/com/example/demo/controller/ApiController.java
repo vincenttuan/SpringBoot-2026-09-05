@@ -317,7 +317,7 @@ public class ApiController {
 			return ResponseEntity.ok(ApiResponse.error("查無任何書籍"));
 		}
 		
-		return ResponseEntity.ok(ApiResponse.success("%s 筆數: %d".formatted(isPub?"出刊":"停刊", books.size()), books));
+		return ResponseEntity.ok(ApiResponse.success("%s 筆數: %d".formatted(isPub?"出刊":"停刊", queryBooks.size()), queryBooks));
 	}
 	
 	
