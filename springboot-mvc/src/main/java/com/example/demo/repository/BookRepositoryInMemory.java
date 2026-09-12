@@ -24,14 +24,14 @@ public class BookRepositoryInMemory implements BookRepository {
 
 	@Override
 	public List<Book> findAllBooks() {
-		// TODO Auto-generated method stub
-		return null;
+		return books;
 	}
 
 	@Override
 	public Optional<Book> getBookById(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return books.stream()
+					.filter(book -> book.getId().equals(id))
+					.findFirst();
 	}
 
 	@Override
