@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.BMI;
+import com.example.demo.response.ApiResponse;
 
 @RestController // 宣告 ApiController 是一個 Controller, Rest 是表示支援的路徑風格
 @RequestMapping("/api") // 資源分組, 相當於 @WebServlet("/api")
@@ -153,7 +154,15 @@ public class ApiController {
 		
 	}
 	
-	
+	@GetMapping(value = "/json/bmi3", produces = "application/json;charset=utf8")
+	public ApiResponse<BMI> calcBmi3(@RequestParam(required = false) Double h, @RequestParam(required = false) Double w) {
+		double bmiValue = w / Math.pow(h/100, 2);
+		
+		BMI bmi = new BMI(h, w, bmiValue);
+		
+		return ApiResponse.success("BMI 計算結果", bmi);
+		
+	}
 	
 	
 }
