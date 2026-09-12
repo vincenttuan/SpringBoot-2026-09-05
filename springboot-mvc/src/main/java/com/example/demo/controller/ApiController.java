@@ -128,7 +128,7 @@ public class ApiController {
 	 * */
 	@GetMapping(value = "/json/bmi", produces = "application/json;charset=utf8")
 	public String calcBmi(@RequestParam(required = false) Double h, @RequestParam(required = false) Double w) {
-		double bmi = w / Math.pow(h/100, 2);
+		double bmiValue = w / Math.pow(h/100, 2);
 		
 		return """
 				{
@@ -139,7 +139,7 @@ public class ApiController {
 				   		"bmi": %.2f
 				  	}
 				}
-				""".formatted(h, w, bmi);
+				""".formatted(h, w, bmiValue);
 		
 	}
 	
