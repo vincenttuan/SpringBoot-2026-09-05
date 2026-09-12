@@ -43,6 +43,8 @@ public class BookRepositoryInMemoryTest {
 		Book book = new Book(null, "Java", 100.0, 120, true);
 		boolean result = bookRepository.addBook(book);
 		System.out.println("新增: " + result);
+		
+		findAll();
 	}
 	
 	
