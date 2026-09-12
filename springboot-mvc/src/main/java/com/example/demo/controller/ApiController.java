@@ -3,9 +3,11 @@ package com.example.demo.controller;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -224,5 +226,44 @@ public class ApiController {
 		System.out.printf("book = %s%n", book);
 		return ResponseEntity.ok(ApiResponse.success("書籍資料", book));
 	}
+	
+	
+	/**
+	 * 10. 路徑參數
+	 * 傳統設計風格 (QueryString)
+	 * 路徑: /json/book?id=1 查詢 id=1 的書
+	 * 
+	 * 現代設計風格 (PathVariable)
+	 * 路徑: /json/book/1 查詢 id=1 的書
+	 * 
+	 * 宣告方式
+	 * @GetMapping(value = "/json/book/{id}")
+	 * public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable(name = "id") Integer bookId)
+	 * 
+	 * @GetMapping(value = "/json/book/{id}")
+	 * public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable Integer id)
+	 * */
+	@GetMapping(value = "/json/book/{id}")
+	public ResponseEntity<ApiResponse<Book>> getBookById(@PathVariable Integer id) {
+		// 書庫
+		List<Book> books = List.of(
+				new Book(1, "Math", 12.5, 10, true),
+				new Book(2, "English", 10.5, 20, false)
+		);
+		
+		// 根據 id 搜尋書籍
+		Optional<Book> optBook = books.stream().filter(book -> book.getId().equals(id)).findFirst();
+		
+		// 判斷是否有找到
+		if(optBook.isEmpty()) {
+			return ResponseEntity.badRequest().body(ApiResponse.error("查無此書, id=" + id));
+		}
+		
+		// 取得書籍物件
+		Book book = optBook.get();
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
+	}
+	
 	
 }
