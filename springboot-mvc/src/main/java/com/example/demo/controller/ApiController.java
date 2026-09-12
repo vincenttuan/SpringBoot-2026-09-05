@@ -156,8 +156,18 @@ public class ApiController {
 	
 	@GetMapping(value = "/json/bmi3", produces = "application/json;charset=utf8")
 	public ApiResponse<BMI> calcBmi3(@RequestParam(required = false) Double h, @RequestParam(required = false) Double w) {
-		double bmiValue = w / Math.pow(h/100, 2);
+		// 參數個數檢查
+		if(h == null || w == null) {
+			return ApiResponse.error("缺少了身高或體重的參數");
+		}
 		
+		// 參數內容檢查
+		if(h <= 0 || w <= 0) {
+			return ApiResponse.error("身高或體重的參數內容錯誤, 必須皆 > 0");
+		}
+		
+		// 執行計算
+		double bmiValue = w / Math.pow(h/100, 2);
 		BMI bmi = new BMI(h, w, bmiValue);
 		
 		return ApiResponse.success("BMI 計算結果", bmi);
