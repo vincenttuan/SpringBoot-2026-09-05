@@ -61,6 +61,8 @@ public class BookRepositoryInMemory implements BookRepository {
 		Book orginalBook = optBook.get();
 		
 		// 逐筆更新欄位
+		// Java 8 以前寫法
+		/*
 		if(book.getName() != null) {
 			orginalBook.setName(book.getName());
 		}
@@ -76,6 +78,12 @@ public class BookRepositoryInMemory implements BookRepository {
 		if(book.getPub() != null) {
 			orginalBook.setPub(book.getPub());
 		}
+		*/
+		// Java 8 以後寫法
+		Optional.ofNullable(book.getName()).ifPresent(orginalBook::setName);
+		Optional.ofNullable(book.getAmount()).ifPresent(orginalBook::setAmount);
+		Optional.ofNullable(book.getPrice()).ifPresent(orginalBook::setPrice);
+		Optional.ofNullable(book.getPub()).ifPresent(orginalBook::setPub);
 		
 		return true;
 	}
