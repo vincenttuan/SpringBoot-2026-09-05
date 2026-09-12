@@ -211,6 +211,16 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("書籍資料", bookMap));
 	}
 	
-	
+	/**
+	 * 9. 多筆參數轉 model
+	 * name 書名(String), price 價格(Double), amount 數量(Integer), pub 出刊/停刊(Boolean)
+	 * 路徑: /json/book2?name=Math&price=12.5&amount=10&pub=true
+	 * 路徑: /json/book2?name=English&price=10.5&amount=20&pub=false
+	 * 讓參數自動轉成指定 model 
+	 * */
+	@GetMapping(value = "/json/book", produces = "application/json;charset=utf-8")
+	public ResponseEntity<ApiResponse<Book>> getBookInfo2(Book book) {
+		
+	}
 	
 }
