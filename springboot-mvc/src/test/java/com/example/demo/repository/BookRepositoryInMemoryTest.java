@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
@@ -12,7 +14,13 @@ public class BookRepositoryInMemoryTest {
 	 * 相當於 BookRepository bookRepository = new BookRepositoryInMemory();
 	*/
 	@Autowired
+	@Qualifier("bookRepositoryInMemory") // 指定實現類
+	//@Qualifier("bookRepositoryJdbc") // 指定實現類
 	private BookRepository bookRepository;
 	
+	@Test
+	void findAll() {
+		bookRepository.findAllBooks().forEach(System.out::println);
+	}
 	
 }
