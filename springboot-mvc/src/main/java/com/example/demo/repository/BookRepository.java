@@ -9,7 +9,7 @@ import com.example.demo.model.Book;
 public interface BookRepository {
 	
 	// 查找全部書籍
-	List<Book> findAllBoos();
+	List<Book> findAllBooks();
 	
 	// 查找指定書籍
 	Optional<Book> getBookById(Integer id);
