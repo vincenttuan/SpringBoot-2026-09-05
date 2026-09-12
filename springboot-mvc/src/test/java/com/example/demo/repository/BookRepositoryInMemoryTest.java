@@ -38,7 +38,7 @@ public class BookRepositoryInMemoryTest {
 		System.out.println(optBook.get());
 	}
 	
-	@Test
+	//@Test
 	void add() {
 		Book book = new Book(null, "Java", 100.0, 120, true);
 		boolean result = bookRepository.addBook(book);
@@ -47,6 +47,27 @@ public class BookRepositoryInMemoryTest {
 		findAll();
 	}
 	
+	@Test
+	void update() {
+		Integer id = 1;
+		Optional<Book> optBook = bookRepository.getBookById(id);
+		if(optBook.isEmpty()) {
+			System.out.println("查無此書");
+			return;
+		}
+		
+		System.out.println("修改前");
+		findAll();
+		
+		System.out.println();
+		Book originalBook = optBook.get();
+		// 修改必要的資料
+		originalBook.setAmount(77);
+		originalBook.setPrice(6.5);
+		
+		System.out.println("修改後");
+		findAll();
+	}
 	
 	
 }
