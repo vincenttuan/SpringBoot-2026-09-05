@@ -265,5 +265,29 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
+	/**
+	 * 11. 查詢多筆資料(所有書籍列出)
+	 * 路徑: /json/books
+	 * */
+	@GetMapping(value = "/json/books")
+	public ResponseEntity<ApiResponse<List<Book>>> findAllBooks() {
+		// 書庫
+		List<Book> books = List.of(
+				new Book(1, "數學", 12.5, 10, true),
+				new Book(2, "英文", 10.5, 20, false),
+				new Book(3, "社會", 9.5, 30, true),
+				new Book(4, "自然", 8.5, 40, true),
+				new Book(5, "體育", 7.5, 50, false)
+		);
+		
+		if(books.size() == 0) {
+			//return ResponseEntity.ok(ApiResponse.success("查無任何書籍", books));
+			//return ResponseEntity.ok(ApiResponse.success("查無任何書籍", null));
+			return ResponseEntity.ok(ApiResponse.error("查無任何書籍"));
+		}
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢結果", books));
+	}
+	
 	
 }
