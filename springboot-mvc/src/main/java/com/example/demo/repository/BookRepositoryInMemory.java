@@ -90,8 +90,17 @@ public class BookRepositoryInMemory implements BookRepository {
 
 	@Override
 	public Boolean deleteBookById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		// 根據 id 找到要刪除的 book
+		Optional<Book> optBook = getBookById(id);
+		if(optBook.isEmpty()) {
+			return false;
+		}
+		
+		// 得到 book
+		Book book = optBook.get();
+		
+		// 移除書籍
+		return books.remove(book);
 	}
 	
 	
