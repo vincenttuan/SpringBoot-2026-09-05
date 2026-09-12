@@ -58,32 +58,32 @@ public class BookRepositoryInMemory implements BookRepository {
 		}
 		
 		// 取得要修改的 book (原始資料)
-		Book orginalBook = optBook.get();
+		Book originalBook = optBook.get();
 		
 		// 逐筆更新欄位
 		// Java 8 以前寫法
 		/*
 		if(book.getName() != null) {
-			orginalBook.setName(book.getName());
+			originalBook.setName(book.getName());
 		}
 		
 		if(book.getAmount() != null) {
-			orginalBook.setAmount(book.getAmount());
+			originalBook.setAmount(book.getAmount());
 		}
 		
 		if(book.getPrice() != null) {
-			orginalBook.setPrice(book.getPrice());
+			originalBook.setPrice(book.getPrice());
 		}
 		
 		if(book.getPub() != null) {
-			orginalBook.setPub(book.getPub());
+			originalBook.setPub(book.getPub());
 		}
 		*/
 		// Java 8 以後寫法
-		Optional.ofNullable(book.getName()).ifPresent(orginalBook::setName);
-		Optional.ofNullable(book.getAmount()).ifPresent(orginalBook::setAmount);
-		Optional.ofNullable(book.getPrice()).ifPresent(orginalBook::setPrice);
-		Optional.ofNullable(book.getPub()).ifPresent(orginalBook::setPub);
+		Optional.ofNullable(book.getName()).ifPresent(originalBook::setName);
+		Optional.ofNullable(book.getAmount()).ifPresent(originalBook::setAmount);
+		Optional.ofNullable(book.getPrice()).ifPresent(originalBook::setPrice);
+		Optional.ofNullable(book.getPub()).ifPresent(originalBook::setPub);
 		
 		return true;
 	}
