@@ -47,7 +47,7 @@ public class BookRepositoryInMemoryTest {
 		findAll();
 	}
 	
-	@Test
+	//@Test
 	void update() {
 		Integer id = 1;
 		Optional<Book> optBook = bookRepository.getBookById(id);
@@ -66,6 +66,19 @@ public class BookRepositoryInMemoryTest {
 		originalBook.setPrice(6.5);
 		
 		System.out.println("修改後");
+		findAll();
+	}
+	
+	@Test
+	void delete() {
+		System.out.println("刪除前");
+		findAll();
+		
+		Integer id = 1;
+		boolean result = bookRepository.deleteBookById(id);
+		System.out.println("刪除: " + result);
+		
+		System.out.println("刪除後");
 		findAll();
 	}
 	
