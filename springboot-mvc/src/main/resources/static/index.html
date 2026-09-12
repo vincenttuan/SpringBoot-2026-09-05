@@ -4,58 +4,61 @@
     <meta charset="UTF-8">
     <title>Spring Boot API 測試面板</title>
 </head>
-<body style="margin: 0; padding: 0; font-family: sans-serif;">
+<body style="margin: 0; padding: 0; font-family: sans-serif; overflow: hidden; height: 100vh;">
 
-    <table style="width: 100vw; height: 100vh; border-collapse: collapse; table-layout: fixed;">
-        <tr>
-            <!-- 左側：相對路徑連結選單區 -->
-            <td style="width: 30%; max-width: 400px; padding: 20px; vertical-align: top; background-color: #f4f6f9; border-right: 2px solid #ccc; overflow-y: auto;">
-                <h2>🌱 API 測試選單</h2>
-                <p>路徑模式：<code>/api/...</code> (相對路徑)</p>
-                <hr>
+    <!-- 採用 flex 佈局，完美解決小視窗縮放與滾動條異常問題 -->
+    <div style="display: flex; width: 100vw; height: 100vh;">
+        
+        <!-- 左側：固定寬度選單區 (寬度固定 300px，縮小視窗絕不變形，強制維持 scroll bar) -->
+        <div style="width: 300px; min-width: 300px; height: 100vh; padding: 20px; background-color: #f4f6f9; border-right: 2px solid #ccc; box-sizing: border-box; overflow-y: scroll;">
+            <h2 style="margin-top: 0;">🌱 API 測試選單</h2>
+            <p style="font-size: 14px;">路徑模式：<code>/api/...</code></p>
+            <hr>
 
-                <h3>1. Welcome 歡迎光臨</h3>
-                <ul>
-                    <li><a href="/api/welcome" target="api-frame">測試 /welcome</a></li>
-                    <li><a href="/api/home" target="api-frame">測試 /home</a></li>
-                </ul>
+            <h3>1. Welcome 歡迎光臨</h3>
+            <ul>
+                <li><a href="/api/welcome" target="api-frame">測試 /welcome</a></li>
+                <li><a href="/api/home" target="api-frame">測試 /home</a></li>
+            </ul>
 
-                <h3>2. Hello (@RequestParam)</h3>
-                <ul>
-                    <li><a href="/api/hello?name=John&age=20" target="api-frame">完整參數 (?name=John&amp;age=20)</a></li>
-                    <li><a href="/api/hello?name=Mary" target="api-frame">省略選填 (?name=Mary)</a></li>
-                </ul>
+            <h3>2. Hello (@RequestParam)</h3>
+            <ul>
+                <li><a href="/api/hello?name=John&age=20" target="api-frame">完整參數 (?name=John&amp;age=20)</a></li>
+                <li><a href="/api/hello?name=Mary" target="api-frame">省略選填 (?name=Mary)</a></li>
+            </ul>
 
-                <h3>3. Hi (精簡同名)</h3>
-                <ul>
-                    <li><a href="/api/hi?name=John&age=20" target="api-frame">測試 /hi (?name=John&amp;age=20)</a></li>
-                </ul>
+            <h3>3. Hi (精簡同名)</h3>
+            <ul>
+                <li><a href="/api/hi?name=John&age=20" target="api-frame">測試 /hi (?name=John&amp;age=20)</a></li>
+            </ul>
 
-                <h3>4. Lab I: BMI 計算</h3>
-                <ul>
-                    <li><a href="/api/bmi?h=170&w=60" target="api-frame">計算 BMI (?h=170&amp;w=60)</a></li>
-                </ul>
+            <h3>4. Lab I: BMI 計算</h3>
+            <ul>
+                <li><a href="/api/bmi?h=170&w=60" target="api-frame">計算 BMI (?h=170&amp;w=60)</a></li>
+            </ul>
 
-                <h3>5. 多筆資料 (List 年齡)</h3>
-                <ul>
-                    <li><a href="/api/average/ages?age=17&age=21&age=20" target="api-frame">年齡平均 (?age=17&age=21&age=20)</a></li>
-                </ul>
+            <h3>5. 多筆資料 (List 年齡)</h3>
+            <ul>
+                <li><a href="/api/average/ages?age=17&age=21&age=20" target="api-frame">年齡平均 (?age=17&amp;age=21...)</a></li>
+            </ul>
 
-                <h3>6. Lab II: 分數統計</h3>
-                <ul>
-                    <li><a href="/api/average/scores?score=80&score=100&score=50&score=70&score=30" target="api-frame">分數統計 (?score=80&score=100&score=50&score=70&score=30)</a></li>
-                </ul>
-            </td>
+            <h3>6. Lab II: 分數統計</h3>
+            <ul>
+                <li><a href="/api/average/scores?score=80&score=100&score=50&score=70&score=30" target="api-frame">分數統計 (?score=80&amp;score=100...)</a></li>
+            </ul>
+            
+            <div style="height: 60px;"></div> <!-- 底部緩衝墊，避免被捲動軸擋到內容 -->
+        </div>
 
-            <!-- 右側：結果顯示區 -->
-            <td style="width: 60%; vertical-align: top; padding: 0;">
-                <div style="background-color: #333; color: white; padding: 10px 20px; font-weight: bold;">
-                    🖥️ Response 執行結果顯示區
-                </div>
-                <iframe name="api-frame" style="width: 100%; height: calc(100vh - 44px); border: none; background-color: #fff;"></iframe>
-            </td>
-        </tr>
-    </table>
+        <!-- 右側：自適應剩餘空間的結果顯示區 -->
+        <div style="flex-grow: 1; height: 100vh; display: flex; flex-direction: column;">
+            <div style="background-color: #333; color: white; padding: 10px 20px; font-weight: bold; font-size: 15px;">
+                🖥️ Response 執行結果顯示區
+            </div>
+            <iframe name="api-frame" style="flex-grow: 1; width: 100%; border: none; background-color: #fff;"></iframe>
+        </div>
+
+    </div>
 
 </body>
 </html>
