@@ -134,7 +134,7 @@ public class BookController {
 	 	}
 	  
 	 * */
-	@PostMapping("/book")
+	@PostMapping
 	public ResponseEntity<ApiResponse<Object>> addBook(@RequestBody Book book) {
 		try {
 			bookService.addBook(book);
