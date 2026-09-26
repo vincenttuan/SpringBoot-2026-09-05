@@ -5,7 +5,7 @@ public class BookException extends Exception {
 	
 	public BookException(String errorMessage) {
 		super(errorMessage);
-		System.out.printf("[BookException]: %s%n", errorMessage);
+		System.err.printf("[BookException]: %s%n", errorMessage);
 	}
 	
 }
