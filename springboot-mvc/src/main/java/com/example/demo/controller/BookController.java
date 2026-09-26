@@ -157,7 +157,15 @@ public class BookController {
 		}
 	}
 	
-	// Put "/book/{id}" 完整修改
+	/* Put "/book/{id}" 完整修改
+	 	完整修改書籍 json 格式:
+	 	{
+	 		"name": "Java 認證書籍",
+	 		"price": 11.5,
+	 		"amount": 25,
+	 		"pub": true
+	 	}
+	 */
 	@PutMapping("/{id}")
 	public ResponseEntity<ApiResponse<Object>> updateBook(@PathVariable Integer id, @RequestBody Book book) {
 		try {
