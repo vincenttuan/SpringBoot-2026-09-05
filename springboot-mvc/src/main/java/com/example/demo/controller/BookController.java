@@ -17,6 +17,7 @@ import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.BookService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -156,6 +157,21 @@ public class BookController {
 		}
 	}
 	
+	// Put "/book/{id}" 完整修改
+	@PutMapping("/{id}")
+	public ResponseEntity<ApiResponse<Object>> deleteBook(@PathVariable Integer id, @RequestBody Book book) {
+		try {
+			// 修改
+			bookService.updateBook(id, book);
+			// 重查該筆(確認是否真的修改成功)
+			book = bookService.getBookById(id);
+			return ResponseEntity.ok(ApiResponse.success("修改成功", book));
+			
+		} catch (BookException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.success("修改失敗", e.getMessage()));
+		}
+		
+	}
 	
 }
 
