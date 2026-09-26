@@ -159,7 +159,7 @@ public class BookController {
 	
 	// Put "/book/{id}" 完整修改
 	@PutMapping("/{id}")
-	public ResponseEntity<ApiResponse<Object>> deleteBook(@PathVariable Integer id, @RequestBody Book book) {
+	public ResponseEntity<ApiResponse<Object>> updateBook(@PathVariable Integer id, @RequestBody Book book) {
 		try {
 			// 修改
 			bookService.updateBook(id, book);
