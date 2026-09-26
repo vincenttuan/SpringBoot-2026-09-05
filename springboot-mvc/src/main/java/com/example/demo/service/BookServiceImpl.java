@@ -33,7 +33,7 @@ public class BookServiceImpl implements BookService {
 		Optional<Book> optBook = bookRepository.getBookById(id);
 		
 		if(optBook.isEmpty()) {
-			throw new BookException("查無此書, id=" + id);
+			throw new BookException("查無此書: id=%d".formatted(id));
 		}
 		
 		return optBook.get();
@@ -42,13 +42,15 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void addBook(Book book) throws BookException {
 		if(!bookRepository.addBook(book)) {
-			throw new BookException("書籍新增失敗: " + book);
+			throw new BookException("書籍新增失敗: %s".formatted(book));
 		}
 	}
 
 	@Override
 	public void updateBook(Integer id, Book book) throws BookException {
-		// TODO Auto-generated method stub
+		if(!bookRepository.updateBook(id, book)) {
+			throw new BookException("書籍修改失敗: id=%d %s".formatted(id, book));
+		}
 		
 	}
 
