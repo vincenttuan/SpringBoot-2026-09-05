@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -144,7 +145,16 @@ public class BookController {
 		}
 	}
 	
-	
+	// Delete "/book/{id}" 刪除指定書籍
+	@DeleteMapping("/{id}")
+	public ResponseEntity<ApiResponse<Object>> deleteBook(@PathVariable Integer id) {
+		try {
+			bookService.deleteBook(id);
+			return ResponseEntity.ok(ApiResponse.success("刪除成功", "id=%d".formatted(id)));
+		} catch (BookException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.success("刪除失敗", e.getMessage()));
+		}
+	}
 	
 	
 }
