@@ -199,8 +199,8 @@ public class BookController {
 	@PatchMapping("/{id}")
 	public ResponseEntity<ApiResponse<Object>> patchBook(@PathVariable Integer id, @RequestBody Book book) {
 		// 1.是否有 name 與 price 的有效資料
-		boolean hasName = book.getName() != null && !book.getName().isBlank();
-		boolean hasPrice = book.getPrice() != null && book.getPrice() > 0;
+		boolean hasName = book.getName() != null && !book.getName().isEmpty() && !book.getName().isBlank();
+		boolean hasPrice = book.getPrice() != null && !book.getPrice().isNaN() && book.getPrice() > 0;
 		
 		if(!hasName && !hasPrice) {
 			return ResponseEntity.badRequest().body(ApiResponse.success("修改失敗", "請提供要修改的名稱與價格")); 
