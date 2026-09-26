@@ -5,6 +5,9 @@ import java.util.List;
 import com.example.demo.exception.BookException;
 import com.example.demo.model.Book;
 
+/**
+ * 定義書籍的服務規格
+ */
 public interface BookService {
 	
 	List<Book> findAllBooks();
