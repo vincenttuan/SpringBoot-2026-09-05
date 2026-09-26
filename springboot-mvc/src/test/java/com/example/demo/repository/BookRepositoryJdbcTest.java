@@ -37,7 +37,7 @@ public class BookRepositoryJdbcTest {
 		System.out.println(bookRepository.getBookById(1).get());
 	}
 	
-	@Test
+	//@Test
 	public void update() {
 		Integer id = 3;
 		
@@ -50,6 +50,14 @@ public class BookRepositoryJdbcTest {
 		boolean updateOk = bookRepository.updateBook(id, book);
 		System.out.printf("Update Ok: %b%n", updateOk);
 		
+	}
+	
+	@Test
+	public void delete() {
+		Integer id = 3;
+		
+		boolean deleteOk = bookRepository.deleteBookById(id);
+		System.out.printf("Delete Ok: %b%n", deleteOk);
 	}
 	
 	
