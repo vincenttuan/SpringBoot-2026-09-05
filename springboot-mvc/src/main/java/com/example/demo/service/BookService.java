@@ -7,16 +7,16 @@ import com.example.demo.model.Book;
 public interface BookService {
 	
 	List<Book> findAllBooks();
-	Book getBookById(Integer id);
+	Book getBookById(Integer id) throws BookException;
 	
-	void addBook(Book book);
+	void addBook(Book book) throws BookException;
 	
-	void updateBook(Integer id, Book book);
-	void updateBookName(Integer id, String bookName);
-	void updateBookPrice(Integer id, Double bookPrice);
-	void updateBookNameAndPrice(Integer id, String bookName, Double bookPrice);
+	void updateBook(Integer id, Book book) throws BookException;
+	void updateBookName(Integer id, String bookName) throws BookException;
+	void updateBookPrice(Integer id, Double bookPrice) throws BookException;
+	void updateBookNameAndPrice(Integer id, String bookName, Double bookPrice) throws BookException;
 	
-	void deleteBook(Integer id);
+	void deleteBook(Integer id) throws BookException;
 	
 	
 }
