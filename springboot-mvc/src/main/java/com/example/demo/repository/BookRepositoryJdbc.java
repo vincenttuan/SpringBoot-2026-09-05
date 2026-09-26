@@ -35,7 +35,6 @@ public class BookRepositoryJdbc implements BookRepository {
 			e.printStackTrace();
 			return Optional.empty();
 		}
-		
 	}
 
 	@Override
