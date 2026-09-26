@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,8 +30,13 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book getBookById(Integer id) throws BookException {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Book> optBook = bookRepository.getBookById(id);
+		
+		if(optBook.isEmpty()) {
+			throw new BookException("查無此書, id=" + id);
+		}
+		
+		return optBook.get();
 	}
 
 	@Override
