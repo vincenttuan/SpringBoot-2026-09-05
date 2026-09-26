@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -178,8 +179,44 @@ public class BookController {
 		} catch (BookException e) {
 			return ResponseEntity.badRequest().body(ApiResponse.success("修改失敗", e.getMessage()));
 		}
-		
 	}
+	
+	/*
+	 * Patch "/{id}" 部分修改: 只修改名稱與價格
+	 	{
+	 		"name": "多拉A夢",
+	 		"price": 13.2
+	 	}
+	 	或
+	 	{
+	 		"name": "多拉A夢"
+	 	}
+	 	或
+	 	{
+	 		"price": 13.2
+	 	}
+	 * */
+	@PatchMapping("/{id}")
+	public ResponseEntity<ApiResponse<Object>> patchBook(@PathVariable Integer id, @RequestBody Book book) {
+		// 1.是否有 name 與 price 的有效資料
+		boolean hasName = book.getName() != null && !book.getName().isBlank();
+		boolean hasPrice = book.getPrice() != null && book.getPrice() > 0;
+		
+		if(!hasName && !hasPrice) {
+			return ResponseEntity.badRequest().body(ApiResponse.success("部分修改失敗", "請提供要修改的名稱與價格")); 
+		}
+		
+		// 2.進行修改
+		try {
+			if(hasName && hasPrice) bookService.updateBookNameAndPrice(id, book.getName(), book.getPrice());
+			if(hasName && !hasPrice) bookService.updateBookName(id, book.getName());
+			if(!hasName && hasPrice) bookService.updateBookPrice(id, book.getPrice());
+		} catch (BookException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.success("部分修改失敗", e.getMessage()));
+		}
+		
+	} 
+	
 	
 }
 
