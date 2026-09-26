@@ -15,6 +15,9 @@ import com.example.demo.exception.BookException;
 import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.BookService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 /**
  * BookController
@@ -118,8 +121,20 @@ public class BookController {
 		} catch (BookException e) {
 			return ResponseEntity.badRequest().body(ApiResponse.success("查詢失敗", e.getMessage()));
 		}
-		
 	}
+	
+	// Post "/book" 新增書籍
+	@PostMapping("/book")
+	public ResponseEntity<ApiResponse<Object>> addBook(@RequestBody Book book) {
+		try {
+			bookService.addBook(book);
+			return ResponseEntity.ok(ApiResponse.success("新增成功", book));
+		} catch (BookException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.success("新增失敗", e.getMessage()));
+		}
+	}
+	
+	
 	
 	
 }
