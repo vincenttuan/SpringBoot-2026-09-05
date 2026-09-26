@@ -84,13 +84,13 @@ public class BookServiceImpl implements BookService {
 		uptBook.setPrice(bookPrice);
 		// 將 id 與 uptBook 送入修改方法
 		updateBook(id, uptBook);
-		
 	}
 
 	@Override
 	public void deleteBook(Integer id) throws BookException {
-		// TODO Auto-generated method stub
-		
+		if(!bookRepository.deleteBookById(id)) {
+			throw new BookException("刪除失敗: id=%d".formatted(id));
+		}
 	}
 
 }
