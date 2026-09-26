@@ -11,7 +11,7 @@ create table if not exists book(
     `name` varchar(50) not null,
     `price` decimal(10, 1) not null,
     `amount` int not null,
-    `pub` tinyint(1) not null default 0,
+    `pub` boolean not null default 0,
     primary key (`id`)
 )
 */
