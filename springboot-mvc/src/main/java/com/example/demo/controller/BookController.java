@@ -123,7 +123,17 @@ public class BookController {
 		}
 	}
 	
-	// Post "/book" 新增書籍
+	/*
+	 * Post "/book" 新增書籍
+	   新增書籍 json 格式:
+	 	{
+	 		"name": "Java 認證書籍",
+	 		"price": 11.5,
+	 		"amount": 25,
+	 		"pub": true
+	 	}
+	  
+	 * */
 	@PostMapping("/book")
 	public ResponseEntity<ApiResponse<Object>> addBook(@RequestBody Book book) {
 		try {
