@@ -203,7 +203,7 @@ public class BookController {
 		boolean hasPrice = book.getPrice() != null && book.getPrice() > 0;
 		
 		if(!hasName && !hasPrice) {
-			return ResponseEntity.badRequest().body(ApiResponse.success("部分修改失敗", "請提供要修改的名稱與價格")); 
+			return ResponseEntity.badRequest().body(ApiResponse.success("修改失敗", "請提供要修改的名稱與價格")); 
 		}
 		
 		// 2.進行修改
@@ -211,8 +211,12 @@ public class BookController {
 			if(hasName && hasPrice) bookService.updateBookNameAndPrice(id, book.getName(), book.getPrice());
 			if(hasName && !hasPrice) bookService.updateBookName(id, book.getName());
 			if(!hasName && hasPrice) bookService.updateBookPrice(id, book.getPrice());
+			
+			book = bookService.getBookById(id);
+			return ResponseEntity.ok(ApiResponse.success("修改成功", book));
+			
 		} catch (BookException e) {
-			return ResponseEntity.badRequest().body(ApiResponse.success("部分修改失敗", e.getMessage()));
+			return ResponseEntity.badRequest().body(ApiResponse.success("修改失敗", e.getMessage()));
 		}
 		
 	} 
