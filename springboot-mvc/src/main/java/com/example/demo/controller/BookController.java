@@ -127,7 +127,6 @@ public class BookController {
 	 * Post "/book" 新增書籍
 	   新增書籍 json 格式:
 	 	{
-	 		"id": 0,
 	 		"name": "Java 認證書籍",
 	 		"price": 11.5,
 	 		"amount": 25,
