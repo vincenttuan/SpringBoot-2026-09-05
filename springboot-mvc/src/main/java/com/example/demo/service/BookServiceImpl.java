@@ -41,9 +41,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void addBook(Book book) throws BookException {
-		Boolean isAddOk = bookRepository.addBook(book);
-		
-		if(!isAddOk) {
+		if(!bookRepository.addBook(book)) {
 			throw new BookException("書籍新增失敗: " + book);
 		}
 	}
