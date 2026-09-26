@@ -11,7 +11,7 @@ import com.example.demo.model.Book;
 public class BookRepositoryJdbcTest {
 	
 	@Autowired
-	@Qualifier("BookRepositoryJdbc") // 指定實現類
+	@Qualifier("bookRepositoryJdbc") // 指定實現類
 	private BookRepository bookRepository;
 	
 	@Test
