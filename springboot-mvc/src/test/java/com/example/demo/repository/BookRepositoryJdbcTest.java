@@ -32,10 +32,26 @@ public class BookRepositoryJdbcTest {
 		bookRepository.findAllBooks().forEach(System.out::println);
 	}
 	
-	@Test
+	//@Test
 	public void findOne() {
 		System.out.println(bookRepository.getBookById(1).get());
 	}
+	
+	@Test
+	public void update() {
+		Integer id = 3;
+		
+		Book book = new Book();
+		book.setName("Java");
+		book.setPrice(15.5);
+		book.setAmount(12);
+		book.setPub(false);
+		
+		boolean updateOk = bookRepository.updateBook(id, book);
+		System.out.printf("Update Ok: %b%n", updateOk);
+		
+	}
+	
 	
 	
 }
