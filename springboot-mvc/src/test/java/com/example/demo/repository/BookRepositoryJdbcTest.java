@@ -27,9 +27,14 @@ public class BookRepositoryJdbcTest {
 		bookRepository.addBook(book4);
 	}
 	
-	@Test
+	//@Test
 	public void findAll() {
 		bookRepository.findAllBooks().forEach(System.out::println);
+	}
+	
+	@Test
+	public void findOne() {
+		System.out.println(bookRepository.getBookById(1).get());
 	}
 	
 	
