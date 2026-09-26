@@ -14,7 +14,7 @@ public class BookRepositoryJdbcTest {
 	@Qualifier("bookRepositoryJdbc") // 指定實現類
 	private BookRepository bookRepository;
 	
-	@Test
+	//@Test
 	public void add() {
 		Book book1 = new Book(0, "小叮噹", 12.5, 20, true);
 		Book book2 = new Book(0, "老夫子", 10.5, 30, true);
@@ -25,7 +25,12 @@ public class BookRepositoryJdbcTest {
 		bookRepository.addBook(book2);
 		bookRepository.addBook(book3);
 		bookRepository.addBook(book4);
-		
 	}
+	
+	@Test
+	public void findAll() {
+		bookRepository.findAllBooks().forEach(System.out::println);
+	}
+	
 	
 }
