@@ -21,6 +21,12 @@ const addBtn     = document.getElementById('addBtn');
 const updateBtn  = document.getElementById('updateBtn'); 
 const resetBtn   = document.getElementById('resetBtn'); 
 
+// 紀錄目前表單模式
+// create = 新增模式(預設)
+// update = 修改模式
+let formMode = "create";
+
+
 
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
