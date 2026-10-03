@@ -43,6 +43,15 @@ async function findAllBooks() {
 function renderBookTable(result) {
 	const books = result.data;
 	console.log('books:', books);
+	
+	let html = "";
+	
+	books.forEach(book => {
+		
+		console.log('book:', book);
+		
+	});
+	
 }
 
 
