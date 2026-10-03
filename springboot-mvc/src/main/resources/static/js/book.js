@@ -25,14 +25,23 @@ async function findAllBooks() {
 	try {
 		const response = await fetch(API_BASE_URL);
 		console.log('response:', response);
+		
 		const result = await handleResponse(response);
 		console.log('result:', result);
 		
+		renderBookTable(result);
 	} catch(e) {
 		console.log('err:', e);
 	}
 	
 } 
+
+// 渲染表格(給全部書籍列表使用)
+function renderBookTable(result) {
+	const books = result.data;
+	console.log('books:', books);
+}
+
 
 // 統一處理 fetch 回應
 async function handleResponse(response) {
