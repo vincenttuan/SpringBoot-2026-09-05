@@ -27,7 +27,6 @@ async function findAllBooks() {
 		console.log('response:', response);
 		
 	} catch(e) {
-		
 		console.log('err:', e);
 	}
 	
