@@ -21,6 +21,9 @@ const addBtn     = document.getElementById('addBtn');
 const updateBtn  = document.getElementById('updateBtn'); 
 const resetBtn   = document.getElementById('resetBtn'); 
 
+// 取得其他畫面元素
+const messageBox = document.getElementById('messageBox');
+
 // 紀錄目前表單模式
 // create = 新增模式(預設)
 // update = 修改模式
@@ -37,6 +40,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	// 查詢所有書籍
 	findAllBooks();	
 });
+
+// 顯示訊息
+function showMessage(message, type = "info") {
+	messageBox.textContent = message;
+	messageBox.className = `message-box ${type}`;
+}
 
 // 新增書籍
 async function addBook() {
