@@ -25,6 +25,8 @@ async function findAllBooks() {
 	try {
 		const response = await fetch(API_BASE_URL);
 		console.log('response:', response);
+		const result = await response.json();
+		console.log('result:', result);
 		
 	} catch(e) {
 		console.log('err:', e);
