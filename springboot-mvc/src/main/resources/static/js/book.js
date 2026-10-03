@@ -63,7 +63,6 @@ function renderBookTable(result) {
 	});
 	
 	bookTableBody.innerHTML = html;
-	
 }
 
 
