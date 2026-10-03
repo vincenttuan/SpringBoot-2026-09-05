@@ -26,7 +26,8 @@ const resetBtn   = document.getElementById('resetBtn');
 // update = 修改模式
 let formMode = "create";
 
-
+// 監聽按鈕事件
+addBtn.addEventListener('click', addBook);
 
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
@@ -36,6 +37,18 @@ window.addEventListener('DOMContentLoaded', () => {
 	// 查詢所有書籍
 	findAllBooks();	
 });
+
+// 新增書籍
+async function addBook() {
+	console.log('按下[新增書籍]');
+	try {
+		
+		
+	} catch(e) {
+		console.log('err:', e);
+	}
+	
+}
 
 // 查詢所有書籍
 async function findAllBooks() {
