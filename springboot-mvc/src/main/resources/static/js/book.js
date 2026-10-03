@@ -37,7 +37,7 @@ async function findAllBooks() {
 // 統一處理 fetch 回應
 async function handleResponse(response) {
 	const result = await response.json();
-	if(!result.ok) {
+	if(!response.ok) {
 		throw new Error(response.message || '發生錯誤');
 	}
 	return result;
