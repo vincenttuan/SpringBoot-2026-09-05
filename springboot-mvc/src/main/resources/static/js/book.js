@@ -53,7 +53,7 @@ async function addBook() {
 		console.log('Add Book:', book);
 		
 	} catch(e) {
-		console.log('err:', e);
+		console.log('Add Book err:', e);
 	}
 	
 }
