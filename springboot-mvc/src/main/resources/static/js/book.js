@@ -23,12 +23,15 @@ window.addEventListener('DOMContentLoaded', () => {
 async function findAllBooks() {
 	
 	try {
+		// 得到回應
 		const response = await fetch(API_BASE_URL);
 		console.log('response:', response);
 		
+		// 取得結果
 		const result = await handleResponse(response);
 		console.log('result:', result);
 		
+		// 資料渲染
 		renderBookTable(result);
 	} catch(e) {
 		console.log('err:', e);
