@@ -43,6 +43,14 @@ async function addBook() {
 	console.log('按下[新增書籍]');
 	try {
 		
+		const book = {
+			name: bookName.value.trim(),
+			price: bookPrice.value ? Number(bookPrice.value) : null,
+			amount: bookAmount.value ? Number(bookAmount.value) : null,
+			pub: bookPub.checked
+		}; 
+		
+		console.log('Add Book:', book);
 		
 	} catch(e) {
 		console.log('err:', e);
