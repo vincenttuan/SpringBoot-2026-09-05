@@ -52,11 +52,27 @@ import org.springframework.web.bind.annotation.RequestBody;
     "pub": true
    }
  * 
- * DELETE      /book/{id}     刪除書籍
  * PUT         /book/{id}     更新整本書 (完整更新)
+  {
+    "name": "Java21",
+    "price": 10.5,
+    "amount": 20,
+    "pub": false
+  }
  * PATCH       /book/{id}     部分更新 (name + price)
- * PATCH       /book/name/{id}   只改名稱
- * PATCH       /book/price/{id}  只改價格
+ {
+    "price": 10.3
+ }
+ 或
+ {
+    "name": "Java17"
+ }
+ 或
+ {
+    "name": "Java8",
+    "price": 88.8
+ }
+ * DELETE      /book/{id}     刪除書籍
  *
  * --------------------------------------------
  * 📌 分層架構 (MVC)：
