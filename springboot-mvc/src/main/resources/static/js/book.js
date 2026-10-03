@@ -47,8 +47,18 @@ function renderBookTable(result) {
 	let html = "";
 	
 	books.forEach(book => {
-		
 		console.log('book:', book);
+		
+		html += `
+			<tr>
+				<td>${book.id}</td>
+				<td>${book.name}</td>
+				<td>${book.price}</td>
+				<td>${book.amount}</td>
+				<td>${book.pub}</td>
+				<td></td>
+			</tr>
+		`;
 		
 	});
 	
