@@ -14,5 +14,21 @@ const API_BASE_URL = "/book";
 window.addEventListener('DOMContentLoaded', () => {
 	
 	console.log('網頁載入成功 !');
-		
+	
+	// 查詢所有書籍
+	findAllBooks();	
 });
+
+// 查詢所有書籍
+async function findAllBooks() {
+	
+	try {
+		const response = await fetch(API_BASE_URL);
+		console.log('response:', response);
+		
+	} catch(e) {
+		
+		console.log('err:', e);
+	}
+	
+} 
