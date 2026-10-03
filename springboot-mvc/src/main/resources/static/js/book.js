@@ -10,6 +10,18 @@
 // Web API 路徑
 const API_BASE_URL = "/book";
 
+// 取得表單元素
+const bookForm   = document.getElementById('bookForm');
+const bookId     = document.getElementById('bookId'); 
+const bookName   = document.getElementById('bookName'); 
+const bookPrice  = document.getElementById('bookPrice'); 
+const bookAmount = document.getElementById('bookAmount'); 
+const bookPub    = document.getElementById('bookPub'); 
+const addBtn     = document.getElementById('addBtn'); 
+const updateBtn  = document.getElementById('updateBtn'); 
+const resetBtn   = document.getElementById('resetBtn'); 
+
+
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
 	
