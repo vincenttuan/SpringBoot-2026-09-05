@@ -25,7 +25,7 @@ async function findAllBooks() {
 	try {
 		const response = await fetch(API_BASE_URL);
 		console.log('response:', response);
-		const result = await response.json();
+		const result = await handleResponse(response);
 		console.log('result:', result);
 		
 	} catch(e) {
@@ -33,3 +33,16 @@ async function findAllBooks() {
 	}
 	
 } 
+
+// 統一處理 fetch 回應
+async function handleResponse(response) {
+	const result = await response.json();
+	if(!result.ok) {
+		throw new Error(response.message || '發生錯誤');
+	}
+	return result;
+}
+
+
+
+
