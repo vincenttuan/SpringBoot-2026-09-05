@@ -52,6 +52,25 @@ async function addBook() {
 		
 		console.log('Add Book:', book);
 		
+		// 透過 Web API 新增書籍
+		// 得到回應
+		const response = await fetch(API_BASE_URL, {
+			method: 'POST',
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify(book)
+		});
+		console.log('Add Book response:', response);
+		
+		// 取得結果
+		const result = await handleResponse(response);
+		console.log('Add Book result:', result);
+		
+		// 清空表單
+		bookForm.reset();
+		
+		// 重新查詢所有書籍
+		findAllBooks();
+		
 	} catch(e) {
 		console.log('Add Book err:', e);
 	}
@@ -62,6 +81,7 @@ async function addBook() {
 async function findAllBooks() {
 	
 	try {
+		// 透過 Web API 查詢書籍
 		// 得到回應
 		const response = await fetch(API_BASE_URL);
 		console.log('response:', response);
