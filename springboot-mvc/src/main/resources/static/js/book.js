@@ -1,0 +1,18 @@
+/**
+ * 功能:
+ * 1.全部查詢
+ * 2.查詢單筆
+ * 3.顯示訊息
+ * 4.顯示表格
+ * 
+ */
+
+// Web API 路徑
+const API_BASE_URL = "/book";
+
+// 頁面載入初始化
+window.addEventListener('DOMContentLoaded', () => {
+	
+	console.log('網頁載入成功 !');
+		
+});
