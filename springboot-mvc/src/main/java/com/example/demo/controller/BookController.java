@@ -45,6 +45,13 @@ import org.springframework.web.bind.annotation.RequestBody;
  * GET         /book          查詢全部書籍
  * GET         /book/{id}     查詢單一書籍
  * POST        /book          新增書籍
+   {
+    "name": "Java",
+    "price": 20.5,
+    "amount": 10,
+    "pub": true
+   }
+ * 
  * DELETE      /book/{id}     刪除書籍
  * PUT         /book/{id}     更新整本書 (完整更新)
  * PATCH       /book/{id}     部分更新 (name + price)
