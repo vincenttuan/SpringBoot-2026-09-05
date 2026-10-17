@@ -91,7 +91,28 @@ async function addBook() {
 		findAllBooks();
 		
 	} catch(e) {
-		console.log('Add Book err:', e);
+		console.log('新增書籍失敗:', e);
+		showMessage("新增書籍失敗:" + e, "error");
+	}
+	
+}
+
+// 修改書籍
+async function updateBook() {
+	try {
+		
+		const book = {
+			id: bookId.value ? Number(bookId.value) : null,
+			name: bookName.value.trim(),
+			price: bookPrice.value ? Number(bookPrice.value) : null,
+			amount: bookAmount.value ? Number(bookAmount.value) : null,
+			pub: bookPub.checked
+		};
+		
+		
+	} catch(e) {
+		console.log('修改書籍失敗:', e);
+		showMessage("修改書籍失敗:" + e, "error");
 	}
 	
 }
