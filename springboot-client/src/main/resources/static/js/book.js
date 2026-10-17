@@ -112,6 +112,7 @@ async function findOneBook(id) {
 		
 	} catch(e) {
 		console.log('err:', e);
+		singleResult.innerHTML = e;
 	}
 	
 }
