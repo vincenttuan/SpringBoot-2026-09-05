@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<!-- xmlns:th 宣告 Thymeleaf 的 th 屬性 -->
+<html lang="zh-TW" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Thymeleaf 入門</title>
+	</head>
+	<body>
+		<h1>Thymeleaf 入門</h1>
+		
+		<!-- 1. th:text: 將 Model 的資料顯示在 HTML -->
+		<p>姓名: <span th:text=${name}>沒有姓名</span></p>
+		<p>年齡: <span th:text=${age}>沒有年齡</span></p>
+		<p>性別: <span th:text=${sex}>沒有性別</span></p>
+		
+		
+	</body>
 </html>
