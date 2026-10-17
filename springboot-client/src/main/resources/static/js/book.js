@@ -55,12 +55,16 @@ function updateFormMode(mode) {
 	if(formMode === 'create') {
 		bookForm.reset();
 		addBtn.disabled = false;
-		updateBtn.disabled = true;
 		resetBtn.disabled = false;
+		
+		updateBtn.disabled = true;
+		cancelUpdateBtn.disabled = true;
 	} else {
 		addBtn.disabled = true;
-		updateBtn.disabled = false;
 		resetBtn.disabled = true;
+		
+		updateBtn.disabled = false;
+		cancelUpdateBtn.disabled = false;
 	}
 }
 
