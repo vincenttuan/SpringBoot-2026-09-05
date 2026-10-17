@@ -46,6 +46,19 @@ window.addEventListener('DOMContentLoaded', () => {
 	findAllBooks();	
 });
 
+// 模式切換邏輯
+// mode: create or update
+function updateFormMode(mode) {
+	formMode = mode;
+	if(formMode === 'create') {
+		addBtn.disabled = false;
+		updateBtn.disabled = true;
+	} else {
+		addBtn.disabled = true;
+		updateBtn.disabled = false;
+	}
+}
+
 // 顯示訊息
 function showMessage(message, type = "info") {
 	messageBox.textContent = message;
