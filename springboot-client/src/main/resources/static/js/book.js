@@ -110,9 +110,13 @@ async function findOneBook(id) {
 		console.log('result:', result, JSON.stringify(result));
 		singleResult.innerHTML = JSON.stringify(result.data);
 		
+		// 顯示結果
+		showMessage(result.message || "單筆查詢成功", "success");
+		
 	} catch(e) {
 		console.log('err:', e);
 		singleResult.innerHTML = e;
+		showMessage("單筆查詢失敗", "error");
 	}
 	
 }
