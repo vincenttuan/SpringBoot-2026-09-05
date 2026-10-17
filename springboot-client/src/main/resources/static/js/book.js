@@ -101,6 +101,7 @@ async function addBook() {
 async function updateBook() {
 	try {
 		
+		// 建立要修改的書籍 book 物件(json格式)
 		const book = {
 			id: bookId.value ? Number(bookId.value) : null,
 			name: bookName.value.trim(),
@@ -109,6 +110,19 @@ async function updateBook() {
 			pub: bookPub.checked
 		};
 		
+		// 得到回應
+		const response = await fetch(`${API_BASE_URL}/${book.id}`, {
+			method: "PUT",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify(book)
+		});
+		
+		// 得到結果
+		const result = await handleResponse(response);
+		showMessage(result.message || "修改書籍成功", "success");
+		
+		// 重新查詢
+		findAllBooks();
 		
 	} catch(e) {
 		console.log('修改書籍失敗:', e);
