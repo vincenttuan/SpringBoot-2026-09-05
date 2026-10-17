@@ -113,6 +113,9 @@ async function findOneBook(id) {
 		// 顯示結果
 		showMessage(result.message || "單筆查詢成功", "success");
 		
+		// 將資料放入到表單中
+		fillForm(result.data);
+		
 	} catch(e) {
 		console.log('err:', e);
 		singleResult.innerHTML = e;
