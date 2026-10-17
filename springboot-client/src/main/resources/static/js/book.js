@@ -132,6 +132,30 @@ async function updateBook() {
 	
 }
 
+// 刪除書籍
+async function deleteOneBook(id) {
+	
+	try {
+		// 得到回應
+		const response = await fetch(`${API_BASE_URL}/${id}`, {
+			method: "DELETE"
+		});
+		
+		// 得到結果
+		const result = await handleResponse(response);
+		console.log('刪除書籍成功 id=', id);
+		showMessage(result.message || "刪除書籍成功", "success");
+		
+		// 重新查詢
+		findAllBooks();
+		
+	} catch(e) {
+		console.log('刪除書籍失敗:', e);
+		showMessage("刪除書籍失敗:" + e, "error");
+	}
+	
+}
+
 // 查詢單筆
 async function findOneBook(id) {
 	
