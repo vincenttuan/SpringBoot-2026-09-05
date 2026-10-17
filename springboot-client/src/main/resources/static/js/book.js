@@ -51,6 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function updateFormMode(mode) {
 	formMode = mode;
 	if(formMode === 'create') {
+		bookForm.reset();
 		addBtn.disabled = false;
 		updateBtn.disabled = true;
 	} else {
