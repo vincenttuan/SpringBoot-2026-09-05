@@ -23,6 +23,7 @@ const resetBtn   = document.getElementById('resetBtn');
 
 // 取得其他畫面元素
 const messageBox = document.getElementById('messageBox');
+const singleResult = document.getElementById('singleResult');
 
 // 紀錄目前表單模式
 // create = 新增模式(預設)
@@ -104,7 +105,7 @@ async function findOneBook(id) {
 		// 取得結果
 		const result = await handleResponse(response);
 		console.log('result:', result, JSON.stringify(result));
-		
+		singleResult.innerHTML = JSON.stringify(result.data);
 		
 	} catch(e) {
 		console.log('err:', e);
