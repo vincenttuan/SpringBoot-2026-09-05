@@ -39,11 +39,11 @@ updateBtn.addEventListener('click', updateBook);
 
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
-	
 	console.log('網頁載入成功 !');
-	
 	// 查詢所有書籍
-	findAllBooks();	
+	findAllBooks();
+	// 切換模式
+	updateFormMode('create');	
 });
 
 // 模式切換邏輯
