@@ -22,7 +22,13 @@
 			身分: 非學生
 		</p>
 		
-		
+		<!-- 4. th:each : 逐筆讀取集合中的資料 -->
+		<h2>課程清單</h2>
+		<ul>
+			<li th:each="course : ${courses}" th:text=${course}>
+				課程名稱
+			</li>
+		</ul>
 		
 	</body>
 </html>
