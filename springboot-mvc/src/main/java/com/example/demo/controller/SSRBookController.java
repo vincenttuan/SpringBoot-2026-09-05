@@ -54,6 +54,14 @@ public class SSRBookController {
 	
 	@PutMapping("/{id}")
 	public String updateBook(@PathVariable Integer id, Book book) {
+		System.out.println(book);
+		
+		if(book.getPub() == null) {
+			book.setPub(false);
+		}
+		
+		System.out.println(book);
+		
 		try {
 			bookService.updateBook(id, book);
 		} catch (BookException e) {
