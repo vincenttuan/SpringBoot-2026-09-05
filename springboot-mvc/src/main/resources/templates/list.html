@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<!-- 書籍新增 -->
-		<form method="post" action="@{/ssr/book}">
+		<form method="post" th:action="@{/ssr/book}">
 			書名: <input type="text" name="name" required><p />
 			價格: <input type="number" name="price" required><p />
 			數量: <input type="number" name="amount" required><p />
