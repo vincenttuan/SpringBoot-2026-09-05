@@ -8,7 +8,7 @@
  */
 
 // Web API 路徑
-const API_BASE_URL = "/book";
+const API_BASE_URL = "http://localhost:8080/book";
 
 // 取得表單元素
 const bookForm   = document.getElementById('bookForm');
