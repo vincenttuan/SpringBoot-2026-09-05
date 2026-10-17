@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- xmlns:th 宣告 Thymeleaf 的 th 屬性 -->
+<html lang="zh-TW" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Thymeleaf Book</title>
+	</head>
+	<body>
+		<!-- 書籍修改 -->
+		<form method="post" th:action="@{/ssr/book/{id}(id=${book.id})}">
+			<!-- 模擬 PUT 請求 -->
+			<input type="hidden" name="_method" value="PUT" />
+			
+			書名: <input type="text" name="name" th:value="${book.name}" required><p />
+			價格: <input type="number" name="price" th:value="${book.price}" required><p />
+			數量: <input type="number" name="amount" th:value="${book.amount}" required><p />
+			出刊: <input type="checkbox" name="pub" th:value="${book.pub}" ><p />
+			<button type="submit">修改書籍</button>
+		</form>
+		
+		<!-- 書籍刪除 -->
+		<form method="post" th:action="@{/ssr/book/{id}(id=${book.id})}">
+			<!-- 模擬 DELETE 請求 -->
+			<input type="hidden" name="_method" value="DELETE" />
+			<button type="submit">刪除書籍</button>
+		</form>
+	</body>
+</html>
