@@ -200,6 +200,7 @@ function renderBookTable(result) {
 				<td>${book.pub}</td>
 				<td>
 					<button onclick="findOneBook(${book.id})">修改</button>
+					<button onclick="deleteOneBook(${book.id})" class="danger">刪除</button>
 				</td>
 			</tr>
 		`;
