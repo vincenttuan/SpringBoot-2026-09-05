@@ -35,6 +35,7 @@ let formMode = "create";
 // 監聽按鈕事件
 addBtn.addEventListener('click', addBook);
 findOneBtn.addEventListener('click', () => findOneBook(searchId.value));
+updateBtn.addEventListener('click', updateBook);
 
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
