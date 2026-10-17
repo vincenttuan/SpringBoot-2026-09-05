@@ -20,6 +20,7 @@ const bookPub    = document.getElementById('bookPub');
 const addBtn     = document.getElementById('addBtn'); 
 const updateBtn  = document.getElementById('updateBtn'); 
 const resetBtn   = document.getElementById('resetBtn'); 
+const cancelUpdateBtn = document.getElementById('cancelUpdateBtn');
 
 // 取得其他畫面元素
 const messageBox = document.getElementById('messageBox');
@@ -36,6 +37,7 @@ let formMode = "create";
 addBtn.addEventListener('click', addBook);
 findOneBtn.addEventListener('click', () => findOneBook(searchId.value));
 updateBtn.addEventListener('click', updateBook);
+cancelUpdateBtn.addEventListener('click', () => updateFormMode('create'));
 
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
