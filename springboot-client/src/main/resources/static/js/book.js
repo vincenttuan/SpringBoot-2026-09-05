@@ -171,6 +171,16 @@ function renderBookTable(result) {
 	bookTableBody.innerHTML = html;
 }
 
+// 將 json 資料放入到表單欄位
+function fillForm(book) {
+	bookId.value = book.id ?? "";
+	bookName.value = book.name ?? "";
+	bookPrice.value = book.price ?? "";
+	bookAmount.value = book.amount ?? "";
+	// 單選盒
+	bookPub.checked = book.pub ?? false;
+	
+}
 
 // 統一處理 fetch 回應
 async function handleResponse(response) {
