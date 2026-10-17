@@ -8,10 +8,19 @@
 	<body>
 		<h1>Thymeleaf 入門</h1>
 		
-		<!-- 1. th:text: 將 Model 的資料顯示在 HTML -->
+		<!-- 1. th:text : 將 Model 的資料顯示在 HTML -->
 		<p>姓名: <span th:text=${name}>沒有姓名</span></p>
 		<p>年齡: <span th:text=${age}>沒有年齡</span></p>
 		
+		<!-- 2. th:if : 條件成立才顯示這個資料元素 -->
+		<p th:if="${isStudent}">
+			身分: 學生
+		</p>
+		
+		<!-- 3. th:unless : 條件成立不顯示這個資料元素 -->
+		<p th:unless="${isStudent}">
+			身分: 菲學生
+		</p>
 		
 	</body>
 </html>
