@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.exception.BookException;
@@ -50,6 +52,24 @@ public class SSRBookController {
 		return "edit";
 	}
 	
+	@PutMapping("/{id}")
+	public String updateBook(@PathVariable Integer id, Book book) {
+		try {
+			bookService.updateBook(id, book);
+		} catch (BookException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/ssr/book";
+	}
 	
+	@DeleteMapping("/{id}")
+	public String deleteBook(@PathVariable Integer id) {
+		try {
+			bookService.deleteBook(id);
+		} catch (BookException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/ssr/book";
+	}
 	
 }
