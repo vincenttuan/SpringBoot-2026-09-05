@@ -22,12 +22,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr th:each="book : ${books}">
+						<td th:text="${book.id}">id</td>
+						<td th:text="${book.name}">name</td>
+						<td th:text="${book.price}">price</td>
+						<td th:text="${book.amount}">amount</td>
+						<td th:text="${book.pub}">pub</td>
 						<td></td>
 					</tr>
 				</tbody>
