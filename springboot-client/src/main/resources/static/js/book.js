@@ -133,6 +133,12 @@ async function updateBook() {
 			pub: bookPub.checked
 		};
 		
+		// 檢查資料是否有內容
+		if(!book.name || book.price == null || book.amount == null) {
+			showMessage('請輸入完整書名,價格與數量', 'error');
+			return;
+		}
+		
 		// 得到回應
 		const response = await fetch(`${API_BASE_URL}/${book.id}`, {
 			method: "PUT",
