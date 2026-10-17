@@ -12,10 +12,10 @@
 				<legend>書籍修改</legend>
 				<!-- 模擬 PUT 請求 -->
 				<input type="hidden" name="_method" value="PUT" />
-				書名: <input type="text" name="name" th:value="${book.name}" required><p />
-				價格: <input type="number" name="price" th:value="${book.price}" required><p />
-				數量: <input type="number" name="amount" th:value="${book.amount}" required><p />
-				出刊: <input type="checkbox" name="pub" th:value="${book.pub}" ><p />
+				書名: <input type="text"     name="name"   th:value="${book.name}"   required><p />
+				價格: <input type="number"   name="price"  th:value="${book.price}"  required><p />
+				數量: <input type="number"   name="amount" th:value="${book.amount}" required><p />
+				出刊: <input type="checkbox" name="pub"    th:value="${book.pub}" ><p />
 				<button type="submit">修改書籍</button>
 			</fieldset>
 		</form>
