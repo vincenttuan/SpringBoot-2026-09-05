@@ -101,6 +101,10 @@ async function findOneBook(id) {
 		// 假設 id=1
 		// `${API_BASE_URL}/${id}` => http://localhost:8080/book/1
 		const response = await fetch(`${API_BASE_URL}/${id}`);
+		// 取得結果
+		const result = await handleResponse(response);
+		console.log('result:', result, JSON.stringify(result));
+		
 		
 	} catch(e) {
 		console.log('err:', e);
