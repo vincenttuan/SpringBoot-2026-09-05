@@ -135,6 +135,9 @@ async function updateBook() {
 		const result = await handleResponse(response);
 		showMessage(result.message || "修改書籍成功", "success");
 		
+		// 切換模式
+		updateFormMode('create');
+			
 		// 重新查詢
 		findAllBooks();
 		
@@ -188,6 +191,9 @@ async function findOneBook(id) {
 		
 		// 將資料放入到表單中
 		fillForm(result.data);
+		
+		// 切換模式
+		updateFormMode('update');
 		
 	} catch(e) {
 		console.log('err:', e);
