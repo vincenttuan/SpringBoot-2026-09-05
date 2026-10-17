@@ -24,6 +24,8 @@ const resetBtn   = document.getElementById('resetBtn');
 // 取得其他畫面元素
 const messageBox = document.getElementById('messageBox');
 const singleResult = document.getElementById('singleResult');
+const searchId = document.getElementById('searchId');
+const findOneBtn = document.getElementById('findOneBtn');
 
 // 紀錄目前表單模式
 // create = 新增模式(預設)
@@ -32,6 +34,7 @@ let formMode = "create";
 
 // 監聽按鈕事件
 addBtn.addEventListener('click', addBook);
+findOneBtn.addEventListener('click', () => findOneBook(searchId.value));
 
 // 頁面載入初始化
 window.addEventListener('DOMContentLoaded', () => {
