@@ -54,9 +54,11 @@ function updateFormMode(mode) {
 		bookForm.reset();
 		addBtn.disabled = false;
 		updateBtn.disabled = true;
+		resetBtn.disabled = false;
 	} else {
 		addBtn.disabled = true;
 		updateBtn.disabled = false;
+		resetBtn.disabled = true;
 	}
 }
 
