@@ -92,6 +92,22 @@ async function addBook() {
 	
 }
 
+// 查詢單筆
+async function findOneBook(id) {
+	
+	try {
+		// 透過 Web API 查詢書籍
+		// 得到回應
+		// 假設 id=1
+		// `${API_BASE_URL}/${id}` => http://localhost:8080/book/1
+		const response = await fetch(`${API_BASE_URL}/${id}`);
+		
+	} catch(e) {
+		console.log('err:', e);
+	}
+	
+}
+
 // 查詢所有書籍
 async function findAllBooks() {
 	
