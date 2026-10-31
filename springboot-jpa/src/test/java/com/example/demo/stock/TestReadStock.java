@@ -20,8 +20,8 @@ public class TestReadStock {
 	public void read() {
 		//List<Stock> stocks = stockRepository.findAll();
 		//List<Stock> stocks = stockRepository.findAll(Sort.by("symbol").ascending());
-		List<Stock> stocks = stockRepository.findAll_useTSQL();
-		//List<Stock> stocks = stockRepository.findAll_usePSQL();
+		//List<Stock> stocks = stockRepository.findAll_useTSQL();
+		List<Stock> stocks = stockRepository.findAll_usePSQL();
 		
 		stocks.forEach(System.out::println);
 		
