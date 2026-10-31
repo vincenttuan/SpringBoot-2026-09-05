@@ -25,6 +25,11 @@ public class StockController {
 		
 		// 指向: src/main/resources/templates/stock/list.html
 		return "stock/list";
+		/*       ^       ^ 
+		 *       |-資料夾  |-html 檔名
+		 * 
+		 * 
+		 * */
 	}
 	
 	
