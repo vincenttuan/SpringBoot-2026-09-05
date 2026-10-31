@@ -11,7 +11,7 @@ import com.example.demo.model.stock.Stock;
 import com.example.demo.repository.StockRepository;
 
 @SpringBootTest
-public class TestReadStock {
+public class Test_ReadStock {
 	
 	@Autowired
 	private StockRepository stockRepository;
