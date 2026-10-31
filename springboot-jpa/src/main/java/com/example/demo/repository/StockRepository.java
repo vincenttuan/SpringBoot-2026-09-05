@@ -31,5 +31,5 @@ public interface StockRepository extends JpaRepository<Stock, Integer> {
 	
 	// JPA Query Derivation (方法名稱衍生查詢)
 	// 會讓 Spring 自動去尋找 Stock 實體(Entity) 中名稱為 symbol 的屬性
-	Optional<Stock> findBySymbol(String symbol);
+	public Optional<Stock> findBySymbol(String symbol);
 }
