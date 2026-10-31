@@ -9,7 +9,7 @@
 		<!-- 書籍新增 -->
 		<form method="post" th:action="@{/ssr/book}">
 			書名: <input type="text" name="name" required><p />
-			價格: <input type="number" name="price" required><p />
+			價格: <input type="number" name="price" step="0.1" required><p />
 			數量: <input type="number" name="amount" required><p />
 			出刊: <input type="checkbox" name="pub"><p />
 			
