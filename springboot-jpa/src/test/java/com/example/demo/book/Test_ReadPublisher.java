@@ -22,7 +22,8 @@ public class Test_ReadPublisher {
 		//List<Publisher> publishers = publisherRepository.findAll();
 		//List<Publisher> publishers = publisherRepository.findAll(Sort.by("id").ascending()); // 小->大
 		//List<Publisher> publishers = publisherRepository.findAll(Sort.by("id").descending()); // 大->小
-		List<Publisher> publishers = publisherRepository.findAll_useSQL();
+		//List<Publisher> publishers = publisherRepository.findAll_useSQL();
+		List<Publisher> publishers = publisherRepository.findAll_useJPQL();
 		System.out.printf("出版社筆數: %d%n", publishers.size());
 		publishers.forEach(pub -> {
 			System.out.printf("id: %d name:%s%n", pub.getId(), pub.getName());

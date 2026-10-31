@@ -15,7 +15,7 @@ public interface PublisherRepository extends JpaRepository<Publisher, Integer> {
 	@Query(value="select * from publisher order by id asc", nativeQuery = true)
 	List<Publisher> findAll_useSQL();
 	
-	// 自訂查詢方法(使用內建 PQL)
+	// 自訂查詢方法(使用內建 JPQL)
 	@Query(value = "select p from Publisher p order by p.id asc")
 	List<Publisher> findAll_useJPQL();
 	
