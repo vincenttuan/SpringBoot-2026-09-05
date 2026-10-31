@@ -22,7 +22,7 @@ public class StockController {
 	@GetMapping
 	public String findAll(Model model) {
 		List<Stock> stocks = stockService.findAll();
-		
+		model.addAttribute("stocks", stocks);
 		// 指向: src/main/resources/templates/stock/list.html
 		//       ┌資料夾 ┌html 檔名
 		return "stock/list";
