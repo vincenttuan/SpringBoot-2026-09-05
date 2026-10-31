@@ -20,10 +20,13 @@ public class Test_UpdateStock {
 	 * */
 	@Test
 	public void update() {
-		// 根據 id 找到指定
-		Integer id = 2; // 已知條件
+		// 根據 id 找到 stock 
+		//Integer id = 2; // 已知條件
+		//Optional<Stock> optStock = stockRepository.findById(id);
 		
-		Optional<Stock> optStock = stockRepository.findById(id);
+		// 根據 symbol 找到 stock
+		
+		
 		if(optStock.isEmpty()) {
 			System.out.println("查無資料");
 			return;
