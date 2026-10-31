@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
@@ -18,7 +19,8 @@ import lombok.Data;
  * */
 
 @Data
-@Entity(name = "FSK001")
+@Entity
+@Table(name = "FSK001")
 public class Stock {
 	
 	@Id
