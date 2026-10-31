@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<!-- xmlns:th 宣告 Thymeleaf 的 th 屬性 -->
+<html lang="zh-TW" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<title>Stock List</title>
 	</head>
 	<body>
+		<p th:text="${stocks}"></p>
 		<div>
 			<fieldset>
 				<legend>Stock List</legend>
