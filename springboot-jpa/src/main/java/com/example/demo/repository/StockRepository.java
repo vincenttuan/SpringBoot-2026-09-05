@@ -27,6 +27,9 @@ public interface StockRepository extends JpaRepository<Stock, Integer> {
 	
 	// 自訂方法使用 PSQL
 	@Query(value = "select s from Stock s where s.symbol = :symbol")
-	public List<Stock> findBySymbol_usePSQL(String symbol);
+	public Optional<Stock> findBySymbol_usePSQL(String symbol);
 	
+	// JPA Query Derivation (方法名稱衍生查詢)
+	// 會讓 Spring 自動去尋找 Stock 實體(Entity) 中名稱為 symbol 的屬性
+	Optional<Stock> findBySymbol(String symbol);
 }
