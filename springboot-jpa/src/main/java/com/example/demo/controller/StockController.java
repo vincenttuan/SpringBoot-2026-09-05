@@ -24,12 +24,9 @@ public class StockController {
 		List<Stock> stocks = stockService.findAll();
 		
 		// 指向: src/main/resources/templates/stock/list.html
+		//       ┌資料夾 ┌html 檔名
 		return "stock/list";
-		/*       ^       ^ 
-		 *       |-資料夾  |-html 檔名
-		 * 
-		 * 
-		 * */
+		
 	}
 	
 	
