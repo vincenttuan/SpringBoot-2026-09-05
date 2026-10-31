@@ -25,7 +25,8 @@ public class Test_UpdateStock {
 		//Optional<Stock> optStock = stockRepository.findById(id);
 		
 		// 根據 symbol 找到 stock
-		
+		String symbol = "1101";
+		Optional<Stock> optStock = stockRepository.findBySymbol(symbol);
 		
 		if(optStock.isEmpty()) {
 			System.out.println("查無資料");
@@ -33,7 +34,7 @@ public class Test_UpdateStock {
 		}
 		
 		Stock stock = optStock.get();
-		stock.setName("台灣水泥");
+		stock.setName("台泥");
 		
 		stockRepository.save(stock);
 		
