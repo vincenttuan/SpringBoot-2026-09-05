@@ -32,6 +32,7 @@ public class Test_UpdateStock {
 		Stock stock = optStock.get();
 		stock.setName("台灣水泥");
 		
+		System.out.println("股票名稱修改完成");
 	}
 	
 }
