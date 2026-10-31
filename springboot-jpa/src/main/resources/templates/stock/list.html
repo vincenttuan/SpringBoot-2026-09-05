@@ -20,7 +20,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						
+						<tr th:each="stock : ${stocks}">
+							<td th:text="${stock.id}"></td>
+							<td th:text="${stock.symbol}"></td>
+							<td th:text="${stock.name}"></td>
+						<tr>
 					</tbody>
 				</table>
 				
