@@ -25,9 +25,13 @@ public class Test_AddPublisher {
 		Publisher pub3 = new Publisher();
 		pub3.setName("天下");
 		
-		publisherRepository.save(pub1);
-		publisherRepository.save(pub2);
-		publisherRepository.save(pub3);
+		Publisher pub4 = new Publisher();
+		pub4.setName("無敵");
+		
+		//publisherRepository.save(pub1);
+		//publisherRepository.save(pub2);
+		//publisherRepository.save(pub3);
+		publisherRepository.save(pub4);
 		
 		System.out.println("新增出版社(Publisher)成功");
 	}
