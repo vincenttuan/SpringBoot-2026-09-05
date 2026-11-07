@@ -1,6 +1,7 @@
 package com.example.demo.model.stock;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,5 +42,12 @@ public class Stock {
 	@Column(name = "fsk_15", precision = 12, scale = 2)
 	private BigDecimal price; // 股票價格
 	
+	public void setPrice(BigDecimal price) {
+		this.price = price.setScale(2, RoundingMode.HALF_UP); // 保留小數點二位, 小數點第三位四捨五入
+	}
+	
+	public void setPrice(Double price) {
+		setPrice(BigDecimal.valueOf(price));
+	}
 	
 }
