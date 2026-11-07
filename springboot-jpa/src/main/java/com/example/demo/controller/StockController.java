@@ -69,7 +69,7 @@ public class StockController {
 		return "stock/form";
 	}
 	
-	@PutMapping("{/id}")
+	@PutMapping("/{id}")
 	public String updateStock(@PathVariable Integer id, StockForm stockForm) {
 		stockService.update(id, stockForm);
 		
