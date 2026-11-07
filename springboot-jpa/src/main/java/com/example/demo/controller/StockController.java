@@ -48,7 +48,7 @@ public class StockController {
 	}
 	
 	@PostMapping
-	public String addStock(@Valid StockForm stockForm, BindingResult result, Model model) {
+	public String addStock(@Valid StockForm stockForm, BindingResult result) {
 		// 如果驗證失敗
 		if(result.hasErrors()) {
 			// 返回原表單並顯示錯誤訊息
