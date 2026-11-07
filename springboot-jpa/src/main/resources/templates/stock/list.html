@@ -39,7 +39,9 @@
 							<td th:text="${stock.price}"></td>
 							<td align="center">
 								
-								<button>編輯</button>
+								<form method="get" th:action="@{/stock/{id}(id=${stock.id})}">
+									<button th:title="@{/stock/{id}(id=${stock.id})}">編輯</button>
+								</form>
 								
 								<form method="post" th:action="@{/stock/{id}(id=${stock.id})}">
 									<input type="hidden" name="_method" value="DELETE">
