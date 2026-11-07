@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.dto.StockForm;
 import com.example.demo.model.stock.Stock;
 import com.example.demo.service.StockService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -46,5 +49,13 @@ public class StockController {
 		
 		return "redirect:/stock";
 	}
+	
+	@DeleteMapping("/{id}")
+	public String deleteStock(@PathVariable Integer id) {
+		stockService.delete(id);
+		
+		return "redirect:/stock";
+	}
+	
 	
 }
