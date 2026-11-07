@@ -1,5 +1,7 @@
 package com.example.demo.model.stock;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import lombok.Data;
  * fsk_01: 序號
  * fsk_03: 股票代號
  * fsk_12: 股票名稱
+ * fsk_15: 股票價格
  * ...
  * */
 
@@ -33,5 +36,10 @@ public class Stock {
 	
 	@Column(name = "fsk_12")
 	private String name; // 股票名稱
+	
+	// DECIMAL(12, 2) 最多十位整數, 二位小數 (有小數的十進位)
+	@Column(name = "fsk_15", precision = 12, scale = 2)
+	private BigDecimal price; // 股票價格
+	
 	
 }
