@@ -26,8 +26,14 @@ public class StockController {
 		// 指向: src/main/resources/templates/stock/list.html
 		//       ┌資料夾 ┌html 檔名
 		return "stock/list";
+	}
+	
+	@GetMapping("/new")
+	public String newForm(Model model) {
+		
 		
 	}
+	
 	
 	
 }
