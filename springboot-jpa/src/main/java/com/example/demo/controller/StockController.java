@@ -58,7 +58,12 @@ public class StockController {
 	}
 	
 	@GetMapping("/{id}")
-	public String editForm(@PathVariable Integer id) {
+	public String editForm(@PathVariable Integer id, Model model) {
+		Stock stock = stockService.getById(id);
+		StockForm stockForm = new StockForm(stock.getSymbol(), stock.getName(), stock.getPrice());
+		
+		model.addAttribute("id", id);
+		model.addAttribute("stockForm", stockForm);
 		
 		return "stock/form";
 	}
