@@ -16,7 +16,7 @@
 		</div> 
 		<form method="post" th:object="${stockForm}" th:action="@{/stock}">
 			<fieldset>
-				<legend>Stock 表單 (新增股票)</legend>
+				<legend>Stock 表單 (<span th:text="${id == null}?'新增':'編輯'"></span>股票)</legend>
 				股票代號: <input th:field="*{symbol}"><p />
 				股票名稱: <input th:field="*{name}"><p />
 				股票價格: <input th:field="*{price}"><p />
