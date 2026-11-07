@@ -1,6 +1,6 @@
 USE jpa;
 
-delete from `FSK001` where `fsk_03` > 0;
+delete from `FSK001` where `fsk_01` > 0;
 
 INSERT INTO `FSK001` (`fsk_03`, `fsk_12`, `fsk_15`)
 VALUES
