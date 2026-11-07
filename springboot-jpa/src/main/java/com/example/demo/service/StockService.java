@@ -37,7 +37,7 @@ public class StockService {
 	
 	@Transactional
 	public void update(Integer id, StockForm stockForm) {
-		// 根據 id 找 stock
+		// 根據 id 到資料庫找出 stock
 		Optional<Stock> optStock = stockRepository.findById(id);
 		
 		if(optStock.isEmpty()) {
