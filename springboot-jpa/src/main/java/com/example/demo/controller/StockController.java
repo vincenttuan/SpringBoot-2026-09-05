@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,10 +37,23 @@ public class StockController {
 	 * /stock?sort=price&dir=asc
 	 * /stock?sort=price&dir=desc
 	 * ...
+	 * 
+	 * sort => 排序欄位
+	 * dir  => 排序方向(desc, asc)
 	 * */
 	@GetMapping
 	public String findAll(Model model, @RequestParam(required = false) String sort, @RequestParam(required = false) String dir) {
-		List<Stock> stocks = stockService.findAll();
+		List<Stock> stocks = null;
+		
+		if(sort != null && dir != null) {
+			// desc 大到小, asc 小到大
+			Sort.Direction direction = dir.equals("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
+			stocks = stockService.findAll(Sort.by(direction, sort));
+		} else {
+			stocks = stockService.findAll();
+		}
+		
+		
 		model.addAttribute("stocks", stocks);
 		// 指向: src/main/resources/templates/stock/list.html
 		//       ┌資料夾 ┌html 檔名
