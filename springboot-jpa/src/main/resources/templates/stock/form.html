@@ -14,8 +14,7 @@
 				</p>
 			</fieldset>
 		</div> 
-		<form method="post" th:object="${stockForm}" th:action="${id==null?@{/stock}:@{/stock/id(id=${id})}">
-			<input type="hidden" th:if="${id!=null}" name="_method" value="PUT" />
+		<form method="post" th:object="${stockForm}" th:action="${id==null?@{/stock}:@{/stock/{id}(id=${id})}">
 			<fieldset>
 				<legend>Stock 表單 (<span th:text="${id == null}?'新增':'編輯'"></span>股票)</legend>
 				股票代號: <input th:field="*{symbol}"><p />
