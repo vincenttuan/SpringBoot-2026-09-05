@@ -30,7 +30,7 @@ public class Test_BigDecimal {
 		BigDecimal price = BigDecimal.valueOf(19.565);
 		//price = price.setScale(2, RoundingMode.HALF_UP); // 19.565 -> 19.57
 		//price = price.setScale(2, RoundingMode.HALF_DOWN); // 19.565 -> 19.56
-		price = price.setScale(2, RoundingMode.HALF_EVEN); // 19.565 -> 19.56
+		price = price.setScale(2, RoundingMode.HALF_EVEN); // 19.565 -> 19.57 (進位後因為7不是偶數,則不進位) ->  19.56
 		System.out.println(price);
 	}
 	
