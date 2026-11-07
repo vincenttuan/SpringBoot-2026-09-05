@@ -39,13 +39,7 @@ public class StockService {
 	@Transactional
 	public void update(Integer id, StockForm stockForm) {
 		// 根據 id 到資料庫找出 stock
-		Optional<Stock> optStock = stockRepository.findById(id);
-		
-		if(optStock.isEmpty()) {
-			throw new RuntimeException("修改失敗: 查無資料");
-		}
-		
-		Stock stock = optStock.get();
+		Stock stock = stockRepository.findById(id).orElseThrow(() -> new NoSuchElementException("修改失敗: 查無資料"));	
 		// stock 在此指的是資料庫紀錄
 		// stockForm 在此指的是表單資料
 		// 將 stockForm 的資料回寫給 stock
@@ -60,18 +54,13 @@ public class StockService {
 	@Transactional
 	public void delete(Integer id) {
 		// 根據 id 到資料庫找出 stock
-		Optional<Stock> optStock = stockRepository.findById(id);
-		
-		if(optStock.isEmpty()) {
-			throw new RuntimeException("刪除失敗: 查無資料");
-		}
+		stockRepository.findById(id).orElseThrow(() -> new NoSuchElementException("刪除失敗: 查無資料"));	
 		
 		stockRepository.deleteById(id);
 	}
 	
 	public Stock getById(Integer id) {
-		return stockRepository.findById(id)
-							  .orElseThrow(() -> new NoSuchElementException("查無資料"));
+		return stockRepository.findById(id).orElseThrow(() -> new NoSuchElementException("查無資料"));
 	}
 	
 }
