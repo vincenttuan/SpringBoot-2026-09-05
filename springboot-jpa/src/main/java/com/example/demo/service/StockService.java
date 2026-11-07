@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.StockForm;
@@ -19,8 +20,15 @@ public class StockService {
 	@Autowired
 	private StockRepository stockRepository;
 	
+	// 未排序
 	public List<Stock> findAll() {
 		List<Stock> stocks = stockRepository.findAll();
+		return stocks;
+	}
+	
+	// 根據指定欄位排序
+	public List<Stock> findAll(Sort sort) {
+		List<Stock> stocks = stockRepository.findAll(sort);
 		return stocks;
 	}
 	
