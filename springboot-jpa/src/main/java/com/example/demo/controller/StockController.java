@@ -57,5 +57,11 @@ public class StockController {
 		return "redirect:/stock";
 	}
 	
+	@GetMapping("/{id}")
+	public String editForm(@PathVariable Integer id) {
+		
+		return "stock/form";
+	}
+	
 	
 }
