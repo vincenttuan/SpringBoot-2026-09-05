@@ -44,7 +44,7 @@ public class StockController {
 	public String addStock(StockForm stockForm) {
 		stockService.save(stockForm);
 		
-		return "redirect: /stock";
+		return "redirect:/stock";
 	}
 	
 }
