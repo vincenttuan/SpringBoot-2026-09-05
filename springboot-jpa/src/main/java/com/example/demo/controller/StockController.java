@@ -79,7 +79,12 @@ public class StockController {
 	}
 	
 	@PutMapping("/{id}")
-	public String updateStock(@PathVariable Integer id, StockForm stockForm) {
+	public String updateStock(@PathVariable Integer id, @Valid StockForm stockForm, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "stock/form";
+		}
+		
 		stockService.update(id, stockForm);
 		
 		return "redirect:/stock";
