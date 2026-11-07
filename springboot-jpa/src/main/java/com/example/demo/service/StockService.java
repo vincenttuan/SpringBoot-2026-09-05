@@ -9,6 +9,8 @@ import com.example.demo.dto.StockForm;
 import com.example.demo.model.stock.Stock;
 import com.example.demo.repository.StockRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class StockService {
 	
@@ -20,6 +22,7 @@ public class StockService {
 		return stocks;
 	}
 	
+	@Transactional
 	public void save(StockForm stockForm) {
 		// StockForm 轉 Stock
 		Stock stock = new Stock();
