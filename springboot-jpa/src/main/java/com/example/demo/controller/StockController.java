@@ -12,6 +12,7 @@ import com.example.demo.dto.StockForm;
 import com.example.demo.model.stock.Stock;
 import com.example.demo.service.StockService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
@@ -39,6 +40,11 @@ public class StockController {
 		return "stock/form";
 	}
 	
-	
+	@PostMapping
+	public String addStock(StockForm stockForm) {
+		stockService.save(stockForm);
+		
+		return "redirect: /stock";
+	}
 	
 }
