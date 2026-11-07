@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dto.StockForm;
 import com.example.demo.model.stock.Stock;
@@ -29,8 +30,15 @@ public class StockController {
 	@Autowired
 	private StockService stockService;
 	
+	/*
+	 * URL:
+	 * /stock
+	 * /stock?sort=price&dir=asc
+	 * /stock?sort=price&dir=desc
+	 * ...
+	 * */
 	@GetMapping
-	public String findAll(Model model) {
+	public String findAll(Model model, @RequestParam(required = false) String sort, @RequestParam(required = false) String dir) {
 		List<Stock> stocks = stockService.findAll();
 		model.addAttribute("stocks", stocks);
 		// 指向: src/main/resources/templates/stock/list.html
