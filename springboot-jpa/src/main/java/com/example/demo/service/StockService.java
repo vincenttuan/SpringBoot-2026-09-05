@@ -56,4 +56,16 @@ public class StockService {
 		//stockRepository.save(stock);
 	}
 	
+	@Transactional
+	public void delete(Integer id) {
+		// 根據 id 到資料庫找出 stock
+		Optional<Stock> optStock = stockRepository.findById(id);
+		
+		if(optStock.isEmpty()) {
+			throw new RuntimeException("刪除失敗: 查無資料");
+		}
+		
+		stockRepository.deleteById(id);
+	}
+	
 }
