@@ -27,7 +27,11 @@
 							<th>序號 (id)</th>
 							<th>股票代號 (symbol)</th>
 							<th>股票名稱 (name)</th>
-							<th>股票價格 (price)</th>
+							<th>
+								<a th:href="@{/stock(sort='price', dir='asc')}">▲</a> 
+								股票價格 (price) 
+								<a th:href="@{/stock(sort='price', dir='desc')}">▼</a>
+							</th>
 							<th>操作</th>
 						</tr>
 					</thead>
