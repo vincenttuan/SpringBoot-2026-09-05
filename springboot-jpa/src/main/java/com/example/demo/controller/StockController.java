@@ -6,11 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.dto.StockForm;
 import com.example.demo.model.stock.Stock;
 import com.example.demo.service.StockService;
+
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +48,13 @@ public class StockController {
 	}
 	
 	@PostMapping
-	public String addStock(StockForm stockForm) {
+	public String addStock(@Valid StockForm stockForm, BindingResult result, Model model) {
+		// 如果驗證失敗
+		if(result.hasErrors()) {
+			// 返回原表單並顯示錯誤訊息
+			return "stock/form";
+		}
+		
 		stockService.save(stockForm);
 		
 		return "redirect:/stock";
