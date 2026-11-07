@@ -6,6 +6,14 @@
 		<title>Stock Form</title>
 	</head>
 	<body>
+		<div>
+			<fieldset>
+				<legend>Stock 功能</legend>
+				<p>
+					<a th:href="@{/stock}" th:title="@{/stock}">回股票列表</a>
+				</p>
+			</fieldset>
+		</div> 
 		<form method="post" th:object="${stockForm}" th:action="@{/stock}">
 			<fieldset>
 				<legend>Stock 表單 (新增股票)</legend>
@@ -13,7 +21,6 @@
 				股票名稱: <input th:field="*{name}"><p />
 				股票價格: <input th:field="*{price}"><p />
 				<button type="submit">傳送</button>
-				<a th:href="@{/stock}">回清單</a>
 			</fieldset>
 		</form> 
 		
