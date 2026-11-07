@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,11 @@ public class StockService {
 		}
 		
 		stockRepository.deleteById(id);
+	}
+	
+	public Stock getById(Integer id) {
+		return stockRepository.findById(id)
+							  .orElseThrow(() -> new NoSuchElementException("查無資料"));
 	}
 	
 }
