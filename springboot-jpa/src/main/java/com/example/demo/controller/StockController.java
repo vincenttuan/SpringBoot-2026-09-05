@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @Controller
@@ -68,5 +69,11 @@ public class StockController {
 		return "stock/form";
 	}
 	
+	@PutMapping("{/id}")
+	public String updateStock(@PathVariable Integer id, StockForm stockForm) {
+		stockService.update(id, stockForm);
+		
+		return "redirect:/stock";
+	}
 	
 }
