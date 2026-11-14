@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -104,4 +105,12 @@ public class StockRestController {
 	 * 刪除股票
 	 * DELETE /rest/stock/1
 	 */
+	@DeleteMapping("/{id}")
+	public ResponseEntity<ApiResponse<Void>> delete(@PathVariable Integer id) {
+		
+		stockService.delete(id);
+		return ResponseEntity.ok(ApiResponse.success("刪除成功", null));
+		
+	}
+	
 }
