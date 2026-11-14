@@ -24,6 +24,19 @@
 				<!-- 顯示總筆數 -->
 				共 <span th:text="${stockPage.totalElements}"></span> 筆
 				｜
+				<!-- 每頁筆數 -->
+				<form>
+					<select>
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+					</select>
+				</form>
+				｜
 				<!-- 顯示目前第幾頁 -->
 				第 <span th:text="${stockPage.number + 1}"></span> 頁
 				｜
