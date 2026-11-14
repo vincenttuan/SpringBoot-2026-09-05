@@ -25,8 +25,10 @@ public class Test_ReadStockPage {
 		// PageRequest 查詢分頁實現 (class)
 		// 方法定義: PageRequest.of(int pageNumber, int pageSize, Sort sort) 
 		//                              ^             ^
-		//                            offset         limit
-		Pageable pageable = PageRequest.of(0, 10, Sort.by(Stock::getId));
+		//                             頁數(0表示第1頁)  每頁筆數
+		Pageable pageable = PageRequest.of(0, 10, Sort.by(Stock::getId)); // 預設小 -> 大排序
+		//Pageable pageable = PageRequest.of(0, 10, Sort.by(Stock::getId).ascending()); // 小 -> 大排序
+		//Pageable pageable = PageRequest.of(0, 10, Sort.by(Stock::getId).descending()); // 大 -> 小排序
 		
 		// Page<Stock> 會根據 pageable 的定義來取得本頁實際資料
 		Page<Stock> stockPage = stockRepository.findAll(pageable);
