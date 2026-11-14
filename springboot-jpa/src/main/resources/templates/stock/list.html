@@ -38,6 +38,7 @@
 								sort=${sort},
 								dir=${dir}
 							)}">上一頁</a>
+				<span th:unless="${stockPage.hasPrevious()}" style="color: #cccccc">上一頁</span>
 				｜
 				<!-- 頁碼列表: 1 2 3 4 ... -->
 				<span th:each="p : ${#numbers.sequence(1, stockPage.totalPages)}">
@@ -52,7 +53,6 @@
 						
 					</a>
 				</span>
-				
 				｜
 				<!-- 下一頁 -->
 				<a th:if="${stockPage.hasNext()}"
@@ -62,6 +62,7 @@
 								sort=${sort},
 								dir=${dir}
 							)}">下一頁</a>
+				<span th:unless="${stockPage.hasNext()}" style="color: #cccccc">下一頁</span>			
 			</fieldset>
 		</div>
 		
