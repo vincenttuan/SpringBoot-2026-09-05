@@ -29,7 +29,8 @@
 				共 <span th:text="${stockPage.totalPages}"></span> 頁
 				｜
 				<!-- 上一頁 -->
-				<a th:href="@{/stock(
+				<a th:if="${stockPage.hasPrevious()}"
+				   th:href="@{/stock(
 								page=${stockPage.number},
 								size=${stockPage.size},
 								sort=${sort},
@@ -37,7 +38,8 @@
 							)}">上一頁</a>
 				｜
 				<!-- 下一頁 -->
-				<a th:href="@{/stock(
+				<a th:if="${stockPage.hasNext()}"
+				   th:href="@{/stock(
 								page=${stockPage.number + 2},
 								size=${stockPage.size},
 								sort=${sort},
