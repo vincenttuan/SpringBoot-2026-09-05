@@ -70,7 +70,10 @@ public class StockController {
 		stocks = stockPage.getContent();
 		
 		model.addAttribute("stocks", stocks);
+		
 		model.addAttribute("stockPage", stockPage);
+		model.addAttribute("sort", sort);
+		model.addAttribute("dir", dir);
 		// 指向: src/main/resources/templates/stock/list.html
 		//       ┌資料夾 ┌html 檔名
 		return "stock/list";
