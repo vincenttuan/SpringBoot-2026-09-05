@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,6 +55,7 @@ public class StockController {
 		
 		List<Stock> stocks = null;
 		
+		/*
 		if(sort != null && dir != null) {
 			// desc 大到小, asc 小到大
 			Sort.Direction direction = dir.equals("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
@@ -61,8 +63,14 @@ public class StockController {
 		} else {
 			stocks = stockService.findAll();
 		}
+		*/
+		
+		Sort.Direction direction = dir.equals("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
+		Page<Stock> stockPage = stockService.findPage(page, size, Sort.by(direction, sort));
+		stocks = stockPage.getContent();
 		
 		model.addAttribute("stocks", stocks);
+		model.addAttribute("stockPage", stockPage);
 		// 指向: src/main/resources/templates/stock/list.html
 		//       ┌資料夾 ┌html 檔名
 		return "stock/list";
