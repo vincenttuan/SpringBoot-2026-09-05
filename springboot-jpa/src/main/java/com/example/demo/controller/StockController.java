@@ -37,12 +37,21 @@ public class StockController {
 	 * /stock?sort=price&dir=asc
 	 * /stock?sort=price&dir=desc
 	 * ...
+	 * /stock?page=1&size=10&sort=id&dir=asc
 	 * 
+	 * page => 第幾頁
+	 * size => 每頁筆數
 	 * sort => 排序欄位
 	 * dir  => 排序方向(desc, asc)
 	 * */
 	@GetMapping
-	public String findAll(Model model, @RequestParam(required = false) String sort, @RequestParam(required = false) String dir) {
+	public String findAll(
+			Model model, 
+			@RequestParam(required = false, defaultValue = "1") int page,
+			@RequestParam(required = false, defaultValue = "10") int size,
+			@RequestParam(required = false, defaultValue = "id") String sort, 
+			@RequestParam(required = false, defaultValue = "asc") String dir) {
+		
 		List<Stock> stocks = null;
 		
 		if(sort != null && dir != null) {
