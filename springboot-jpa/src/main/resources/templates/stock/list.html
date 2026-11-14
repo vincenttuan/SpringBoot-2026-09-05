@@ -74,9 +74,21 @@
 				<table border="1" width="100%">
 					<thead>
 						<tr>
-							<th>序號 (id)</th>
-							<th>股票代號 (symbol)</th>
-							<th>股票名稱 (name)</th>
+							<th>
+								<a th:href="@{/stock(sort='id', dir='asc')}">▲</a>
+								序號 (id)
+								<a th:href="@{/stock(sort='id', dir='desc')}">▼</a>
+							</th>
+							<th>
+								<a th:href="@{/stock(sort='symbol', dir='asc')}">▲</a>
+								股票代號 (symbol)
+								<a th:href="@{/stock(sort='symbol', dir='desc')}">▼</a>
+							</th>
+							<th>
+								<a th:href="@{/stock(sort='name', dir='asc')}">▲</a>
+								股票名稱 (name)
+								<a th:href="@{/stock(sort='name', dir='desc')}">▼</a>
+							</th>
 							<th>
 								<a th:href="@{/stock(sort='price', dir='asc')}">▲</a> 
 								股票價格 (price) 
