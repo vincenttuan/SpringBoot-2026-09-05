@@ -5,6 +5,9 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,22 @@ public class StockService {
 	
 	@Autowired
 	private StockRepository stockRepository;
+	
+	// 分頁查詢
+	// 參數 -> page: 第幾頁, size: 每頁筆數, sort: 排序規則
+	public Page<Stock> findPage(int page, int size, Sort sort) {
+		// 參數檢查
+		if(page < 1) page = 1;
+		if(size < 1) size = 10;
+		
+		// 分頁規格
+		Pageable pageable = PageRequest.of(page - 1, size, sort);
+		
+		// 分頁物件
+		Page<Stock> stockPage = stockRepository.findAll(pageable);
+		
+		return stockPage;
+	}
 	
 	// 未排序
 	public List<Stock> findAll() {
