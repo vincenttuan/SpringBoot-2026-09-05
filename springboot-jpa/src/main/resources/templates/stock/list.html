@@ -47,7 +47,8 @@
 					<!-- 其他頁碼: 可點選 -->
 					<a th:href="@{/stock(page=${p},size=${stockPage.size},sort=${sort},dir=${dir})}"
 					   th:unless="${p == stockPage.number + 1}" 
-					   th:text="${p}" style="margin: 4px">
+					   th:text="${p}" 
+					   style="margin: 4px">
 						
 					</a>
 				</span>
