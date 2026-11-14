@@ -40,9 +40,12 @@ public class Test_ReadStockPage {
 		// 顯示與分析
 		stocks.forEach(System.out::println);
 		
-		
-		
-		
+		// 分頁資訊
+		System.out.println("目前第幾頁: " + (stockPage.getNumber() + 1));
+		System.out.println("每頁設定筆數: " + stockPage.getSize());
+		System.out.println("本頁實際筆數: " + stockPage.getNumberOfElements());
+		System.out.println("全部資料筆數: " + stockPage.getTotalElements());
+		System.out.println("總頁數: " + stockPage.getTotalPages());
 		
 	}
 	
