@@ -24,9 +24,6 @@ public class Test_StockRestController {
 	@MockitoBean
 	private StockService stockService;
 	
-	@Autowired
-	private ObjectMapper objectMapper; // 用於將 java 物件轉成 JSON 字串
-	
 	// 1. 測試 GET /rest/stock 分頁查詢
 	@Test
 	void testFindPage() throws Exception {
