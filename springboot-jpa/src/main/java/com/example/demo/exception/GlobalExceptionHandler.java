@@ -44,6 +44,6 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(HttpMessageNotReadableException.class) 
 	public ResponseEntity<ApiResponse<Void>> handleNotReadable(HttpMessageNotReadableException e) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND)
-							 .body(ApiResponse.error("無資料"));
+							 .body(ApiResponse.error("無資料或資料不完整, 資料須符合 json 格式"));
 	}
 }
