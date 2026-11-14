@@ -89,11 +89,14 @@ public class StockRestController {
 	 * PUT /rest/stock/1
 	 */
 	@PutMapping("/{id}")
-	public ResponseEntity<ApiResponse<Void>> update(@PathVariable Integer id, 
+	public ResponseEntity<ApiResponse<Stock>> update(@PathVariable Integer id, 
 													@Valid @RequestBody StockForm stockForm) {
-		
+		// 修改
 		stockService.update(id, stockForm);
-		return ResponseEntity.ok(ApiResponse.success("修改成功", null));
+		// 取得修改後的資料
+		Stock stock = stockService.getById(id);
+		
+		return ResponseEntity.ok(ApiResponse.success("修改成功", stock));
 		
 	} 
 	
