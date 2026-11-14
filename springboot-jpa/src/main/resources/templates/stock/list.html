@@ -24,8 +24,10 @@
 				<!-- 顯示總筆數 -->
 				共 <span th:text="${stockPage.totalElements}"></span> 筆
 				｜
+				<!-- 顯示目前第幾頁 -->
 				第 <span th:text="${stockPage.number + 1}"></span> 頁
 				｜
+				<!-- 顯示總共有幾頁 -->
 				共 <span th:text="${stockPage.totalPages}"></span> 頁
 				｜
 				<!-- 上一頁 -->
@@ -36,6 +38,14 @@
 								sort=${sort},
 								dir=${dir}
 							)}">上一頁</a>
+				｜
+				<!-- 頁碼列表: 1 2 3 4 ... -->
+				<span th:each="p : ${#numbers.sequence(1, stockPage.totalPages)}">
+					
+					<strong th:text="${p}" style="margin: 0 4px"></strong>
+					
+				</span>
+				
 				｜
 				<!-- 下一頁 -->
 				<a th:if="${stockPage.hasNext()}"
