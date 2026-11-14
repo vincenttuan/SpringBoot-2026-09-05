@@ -100,8 +100,6 @@ public class StockRestController {
 		
 	} 
 	
-	
-	
 	/*
 	 * 刪除股票
 	 * DELETE /rest/stock/1
