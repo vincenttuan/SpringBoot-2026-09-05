@@ -17,6 +17,31 @@
 				</p>
 			</fieldset>
 		</div> 
+		
+		<!-- 分頁功能 -->
+		<div>
+			<fieldset>
+				<!-- 顯示總筆數 -->
+				共 <span th:text="${stockPage.totalElements}"></span> 筆
+				｜
+				<!-- 上一頁 -->
+				<a th:href="@{/stock(
+								page=${stockPage.number},
+								size=${stockPage.size},
+								sort=${sort},
+								dir=${dir}
+							)}">上一頁</a>
+				<!-- 下一頁 -->
+				<a th:href="@{/stock(
+								page=${stockPage.number + 2},
+								size=${stockPage.size},
+								sort=${sort},
+								dir=${dir}
+							)}">下一頁</a>
+			</fieldset>
+		</div>
+		
+		
 		<div>
 			<fieldset>
 				<legend>Stock List</legend>
