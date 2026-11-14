@@ -41,9 +41,15 @@
 				｜
 				<!-- 頁碼列表: 1 2 3 4 ... -->
 				<span th:each="p : ${#numbers.sequence(1, stockPage.totalPages)}">
+					<!-- 目前所在頁碼: 加粗顯示, 不可點選 -->
+					<strong th:if="${p == stockPage.number + 1}" th:text="${p}" style="font-size:20px;color: red;margin: 4px"></strong>
 					
-					<strong th:text="${p}" style="margin: 2px"></strong>
-					
+					<!-- 其他頁碼: 可點選 -->
+					<a th:href="@{/stock(page=${p},size=${stockPage.size},sort=${sort},dir=${dir})}"
+					   th:unless="${p == stockPage.number + 1}" 
+					   th:text="${p}" style="margin: 4px">
+						
+					</a>
 				</span>
 				
 				｜
