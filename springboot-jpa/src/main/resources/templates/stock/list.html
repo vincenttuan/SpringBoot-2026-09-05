@@ -24,6 +24,10 @@
 				<!-- 顯示總筆數 -->
 				共 <span th:text="${stockPage.totalElements}"></span> 筆
 				｜
+				第 <span th:text="${stockPage.number + 1}"></span> 頁
+				｜
+				共 <span th:text="${stockPage.totalPages}"></span> 頁
+				
 				<!-- 上一頁 -->
 				<a th:href="@{/stock(
 								page=${stockPage.number},
