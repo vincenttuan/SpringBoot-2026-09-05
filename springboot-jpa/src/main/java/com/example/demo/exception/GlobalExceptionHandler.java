@@ -4,6 +4,7 @@ import java.util.NoSuchElementException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -18,6 +19,13 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<ApiResponse<Void>> handleNotFound(NoSuchElementException e) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND)
 							 .body(ApiResponse.error(e.getMessage()));
+	}
+	
+	// 資料上傳錯誤
+	@ExceptionHandler(MethodArgumentNotValidException.class) 
+	public ResponseEntity<ApiResponse<Void>> handleNotValid(MethodArgumentNotValidException e) {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				 .body(ApiResponse.error(e.getMessage()));
 	}
 	
 }
