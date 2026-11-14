@@ -8,6 +8,8 @@ class SpringbootJpaApplicationTests {
 
 	@Test
 	void contextLoads() {
+		char c = '\u8A2D';
+		System.out.println(c);
 	}
 
 }
