@@ -1,10 +1,14 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +33,11 @@ public class Product {
 	
 	@Column(comment = "商品單價（元）", nullable = false)
 	private Integer price;
-
+	
+	// -- 關聯配置 --------------------------------------------------------
+	@OneToMany(mappedBy = "product")
+	private List<OrderItem> items = new ArrayList<>();
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";

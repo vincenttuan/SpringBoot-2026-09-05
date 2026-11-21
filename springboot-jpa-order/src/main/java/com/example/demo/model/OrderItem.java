@@ -39,6 +39,9 @@ public class OrderItem {
 	@JoinColumn(name = "order_id", comment = "訂單編號")
 	private Order order;
 	
+	@ManyToOne(optional = false) // OrderItem 不可以沒有 Product
+	@JoinColumn(name = "product_id", comment = "商品編號")
+	private Product product;
 	
 	// 計算小計
 	@Transient // 此欄位或getXXX方法只是暫時性的, 不要保存資料表或到資料表去尋找該欄位
