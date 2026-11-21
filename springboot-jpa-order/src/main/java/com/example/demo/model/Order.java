@@ -49,7 +49,7 @@ public class Order {
 	
 	// -- 關聯配置 --------------------------------------------------------
 	// mappedBy: 由 OrderItem.order 來維護關係
-	// CascadeType.PERSIST: 新增訂單時連帶新增明細
+	// CascadeType.PERSIST: 新增訂單時連帶新增明細(聯集新增)
 	// orphanRemoval = true: 移除關聯時將明細一併刪除
 	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<OrderItem> items = new ArrayList<>();
