@@ -24,7 +24,7 @@ public class Read_Product {
 		staffs.forEach(System.out::println);
 		
 		// 根據 name 查找
-		Optional<Product> optProduct = productRepository.findByName("USE線");
+		Optional<Product> optProduct = productRepository.findByName("USB線");
 		if(optProduct.isPresent()) {
 			System.out.print("找到了 => ");
 			Product product = optProduct.get();
