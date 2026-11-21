@@ -1,6 +1,7 @@
 package com.example.demo.order;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,16 @@ public class Read_Staff {
 		// 查找全部
 		List<Staff> staffs = staffRepository.findAll();
 		staffs.forEach(System.out::println);
+		
+		// 根據 name 查找
+		Optional<Staff> optStuff = staffRepository.findByName("王小明");
+		if(optStuff.isPresent()) {
+			System.out.print("找到了 => ");
+			Staff staff = optStuff.get();
+			System.out.println(staff);
+		} else {
+			System.out.println("查無此人");
+		}
 		
 		
 	}
