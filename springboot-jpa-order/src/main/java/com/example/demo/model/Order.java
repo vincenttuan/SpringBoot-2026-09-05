@@ -4,6 +4,7 @@ import java.lang.annotation.ElementType;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -47,7 +48,9 @@ public class Order {
 	}
 	
 	// -- 關聯配置 --------------------------------------------------------
-	@OneToMany
+	// mappedBy: 由 OrderItem.order 來維護關係
+	// CascadeType.PERSIST: 新增訂單時連帶新增明細
+	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
 	private List<OrderItem> items = new ArrayList<>();
 	
 	

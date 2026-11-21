@@ -35,7 +35,7 @@ public class OrderItem {
 	private Integer unitPrice;
 	
 	// -- 關聯配置 --------------------------------------------------------
-	@ManyToOne
+	@ManyToOne(optional = false) // OrderItem 不可以沒有 Order
 	@JoinColumn(name = "order_id", comment = "訂單編號")
 	private Order order;
 	
