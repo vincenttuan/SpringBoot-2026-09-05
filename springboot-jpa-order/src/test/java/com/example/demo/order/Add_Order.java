@@ -35,12 +35,12 @@ public class Add_Order {
 		
 		// 建立細目
 		OrderItem item1 = new OrderItem();
-		item1.setProduct(usb);
+		item1.setProduct(usb); // 設定關聯(如此才有正確的 product_id)
 		item1.setQuantity(1);
 		item1.setUnitPrice(usb.getPrice());
 		
 		OrderItem item2 = new OrderItem();
-		item2.setProduct(hdmi);
+		item2.setProduct(hdmi); // 設定關聯(如此才有正確的 product_id)
 		item2.setQuantity(2);
 		item2.setUnitPrice(hdmi.getPrice());
 		
@@ -49,7 +49,7 @@ public class Add_Order {
 		order.setStatus(OrderStatus.PENDING_PAYMENT);
 		order.setItems(List.of(item1, item2));
 		
-		// 設定關聯
+		// 設定關聯(如此才有正確的 order_id)
 		item1.setOrder(order);
 		item2.setOrder(order);
 		
