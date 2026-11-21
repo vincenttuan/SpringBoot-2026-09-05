@@ -54,5 +54,19 @@ public class Order {
 	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<OrderItem> items = new ArrayList<>();
 	
+	// 新增入口: 保證雙向同步
+	public void addItem(OrderItem item) {
+		if(item == null) return;
+		this.items.add(item);
+		item.setOrder(this);
+	}
+	
+	// 移除入口: : 保證雙向同步
+	public void removeItem(OrderItem item) {
+		if(item == null) return;
+		this.items.remove(item);
+		item.setOrder(null);
+	}
+	
 	
 }
