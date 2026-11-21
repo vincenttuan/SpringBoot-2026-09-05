@@ -27,5 +27,11 @@ public class Staff {
 	
 	@Column(comment = "人員姓名", nullable = false, length = 50)
 	private String name;
+
+	@Override
+	public String toString() {
+		return "Staff [id=" + id + ", name=" + name + "]";
+	}
+
 	
 }
