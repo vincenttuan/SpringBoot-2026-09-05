@@ -37,5 +37,10 @@ public class Order {
 	@Enumerated(EnumType.STRING) 
 	@Column(comment = "訂單狀態", nullable = false)
 	private OrderStatus status = OrderStatus.PENDING_PAYMENT; // 預設值 = PENDING_PAYMENT(待付款)
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", status=" + status + "]";
+	}
 	
 }
