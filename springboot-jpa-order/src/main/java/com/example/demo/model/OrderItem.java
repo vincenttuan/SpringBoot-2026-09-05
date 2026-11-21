@@ -34,7 +34,7 @@ public class OrderItem {
 	
 	
 	// 計算小計
-	@Transient // 此欄位或方法只是暫時性的, 不要保存到資料表裡
+	@Transient // 此欄位或getXXX方法只是暫時性的, 不要保存到資料表裡
 	public Integer getSubTotal() {
 		return unitPrice * quantity; // 小計 = 單位價格 * 數量
 	}
