@@ -34,6 +34,9 @@ public class Remove_OrderItem {
 		
 		order.removeItem(orderItem);
 		
+		// 回存
+		//orderRepository.save(order); // 此行可以不寫,因為方法上有加上 @Transactional
+		
 		System.out.println("orderItem remove ok");
 		
 	}
