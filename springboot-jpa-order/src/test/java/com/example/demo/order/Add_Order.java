@@ -47,8 +47,9 @@ public class Add_Order {
 		// 建立訂單
 		Order order = new Order();
 		order.setStatus(OrderStatus.PENDING_PAYMENT);
+		order.setItems(List.of(item1, item2));
 		
-		// 建立關聯(由 orderItem 來維護關聯)
+		// 設定關聯
 		item1.setOrder(order);
 		item2.setOrder(order);
 		
