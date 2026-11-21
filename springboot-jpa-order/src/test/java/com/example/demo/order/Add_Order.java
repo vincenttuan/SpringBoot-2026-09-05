@@ -47,11 +47,10 @@ public class Add_Order {
 		// 建立訂單
 		Order order = new Order();
 		order.setStatus(OrderStatus.PENDING_PAYMENT);
-		order.setItems(List.of(item1, item2));
 		
-		// 設定關聯(如此才有正確的 order_id)
-		item1.setOrder(order);
-		item2.setOrder(order);
+		// 設定關聯
+		order.addItem(item1);
+		order.addItem(item2);
 		
 		// 儲存(有設定聯集儲存)
 		orderRepository.save(order);
